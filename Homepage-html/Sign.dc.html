@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Shabakkat Sign — Contracts</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=Cairo:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div class="u-app" style="width: 1440px; height: 900px; font-family: Cairo, 'Segoe UI', system-ui, sans-serif; color: #0A1024; --blue: {{accent}}">
+<style>
+.u-app{--ink:#0A1024;--ink2:#434C63;--ink3:#687188;--line:#E2E6EF;--line2:#CCD3E1;--ground:#F5F7FB;--paper:#fff;--blue-deep:color-mix(in oklab,var(--blue) 68%,#000);--blue-tint:color-mix(in oklab,var(--blue) 9%,#fff);--blue-wash:color-mix(in oklab,var(--blue) 4%,#fff);--mono:"IBM Plex Mono",ui-monospace,monospace;--display:"Bricolage Grotesque",system-ui,sans-serif;--ease:cubic-bezier(.2,.75,.1,1);display:flex;background:var(--ground);overflow:hidden;position:relative;font-size:14px;-webkit-font-smoothing:antialiased}
+.u-app *,.u-app *::before,.u-app *::after{box-sizing:border-box}
+.u-app button,.u-app input,.u-app textarea{font:inherit;color:inherit}
+.u-app a{color:inherit;text-decoration:none}
+.u-app :focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.u-rail{width:72px;flex:none;background:var(--ink);display:flex;flex-direction:column;align-items:center;gap:6px;padding:18px 0}
+.u-rail .mk{width:36px;height:36px;margin-bottom:14px}
+.u-rb{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;color:rgba(255,255,255,.62);border:0;background:none;cursor:pointer;position:relative;transition:all .18s var(--ease)}
+.u-rb:hover{color:#fff;background:rgba(255,255,255,.08)}
+.u-rb.on{color:#fff;background:var(--blue)}
+.u-rb svg{width:20px;height:20px}
+.u-rsep{width:28px;height:1px;background:rgba(255,255,255,.14);margin:8px 0}
+.u-rlabel{font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:rgba(255,255,255,.45);text-transform:uppercase}
+.u-av{width:36px;height:36px;border-radius:99px;display:grid;place-items:center;font-size:12px;font-weight:700;flex:none;background:var(--blue-tint);color:var(--blue-deep)}
+.av-wa{background:#E6F0FF;color:#0B2B99}.av-em{background:#EEF0F5;color:#2A3247}.av-wc{background:#FFF1EA;color:#8A3208}
+.u-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:36px;padding:0 14px;border-radius:10px;border:1px solid var(--line2);background:#fff;font-weight:600;font-size:13px;cursor:pointer;transition:all .18s var(--ease);white-space:nowrap}
+.u-btn:hover{border-color:var(--ink)}
+.u-btn svg{width:16px;height:16px}
+.u-btn.pri{background:var(--blue);border-color:var(--blue);color:#fff}
+.u-btn.pri:hover{background:var(--blue-deep);border-color:var(--blue-deep)}
+.u-btn[disabled]{opacity:.45;cursor:not-allowed}
+.u-btn.sm{height:30px;padding:0 10px;font-size:12px;border-radius:8px}
+.u-tag{display:inline-flex;align-items:center;gap:6px;height:22px;padding:0 8px;border-radius:6px;font-family:var(--mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;background:var(--ground);color:var(--ink2);border:1px solid var(--line)}
+.u-tag.blue{background:var(--blue-tint);color:var(--blue-deep);border-color:transparent}
+.u-tag.warn{background:#FFF1EA;color:#9A3B0C;border-color:transparent}
+.u-tag.ok{background:#EAF6EF;color:#1D6B3E;border-color:transparent}
+.u-input{display:flex;align-items:center;gap:8px;height:38px;padding:0 12px;border-radius:10px;border:1px solid var(--line);background:#fff;color:var(--ink3)}
+.u-input:focus-within{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-tint)}
+.u-input input{border:0;outline:0;background:none;flex:1;min-width:0;color:var(--ink)}
+.u-input svg{width:16px;height:16px;flex:none}
+.u-tabs{display:flex;gap:4px;padding:3px;border-radius:10px;background:var(--ground);border:1px solid var(--line)}
+.u-tab{flex:1;height:30px;border:0;background:none;border-radius:8px;font-size:12px;font-weight:700;color:var(--ink3);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.u-tab.on{background:#fff;color:var(--ink);box-shadow:0 1px 2px rgba(10,16,36,.08)}
+.u-tab i{font-style:normal;font-family:var(--mono);font-size:10px;color:var(--ink3)}
+.u-h{font-family:var(--display);font-weight:650;letter-spacing:-.02em;margin:0}
+.u-lbl{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3)}
+.u-card{background:#fff;border:1px solid var(--line);border-radius:14px}
+.u-skel{height:10px;border-radius:6px;background:linear-gradient(90deg,var(--line) 0%,#F0F3F8 50%,var(--line) 100%);background-size:200% 100%;animation:u-sh 1.1s linear infinite}
+@keyframes u-sh{to{background-position:-200% 0}}
+@keyframes u-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.u-toast{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);display:flex;align-items:center;gap:10px;height:44px;padding:0 16px;border-radius:12px;background:var(--ink);color:#fff;font-weight:600;animation:u-in .3s var(--ease);z-index:20}
+.u-toast svg{width:18px;height:18px;color:#8FB0FF}
+
+
+/* sign */
+.sg-side{width:320px;flex:none;background:#fff;border-right:1px solid var(--line);display:flex;flex-direction:column}
+.sg-sh{padding:20px 18px 14px;display:flex;flex-direction:column;gap:14px;border-bottom:1px solid var(--line)}
+.sg-status{display:flex;flex-wrap:wrap;gap:6px}
+.sg-chip{height:30px;padding:0 10px;border-radius:99px;border:1px solid var(--line);background:#fff;font-size:12px;font-weight:700;color:var(--ink2);cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.sg-chip i{font-style:normal;font-family:var(--mono);font-size:10px;color:var(--ink3)}
+.sg-chip.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.sg-chip.on i{color:rgba(255,255,255,.7)}
+.sg-list{flex:1;overflow:auto;padding:8px;display:flex;flex-direction:column;gap:2px}
+.sg-doc{width:100%;display:flex;gap:12px;padding:12px;border-radius:12px;border:1px solid transparent;background:none;text-align:left;cursor:pointer}
+.sg-doc:hover{background:var(--ground)}
+.sg-doc.on{background:var(--blue-wash);border-color:color-mix(in oklab,var(--blue) 25%,#fff)}
+.sg-ico{width:36px;height:44px;border-radius:6px;border:1px solid var(--line2);background:#fff;flex:none;position:relative}
+.sg-ico::before{content:"";position:absolute;left:7px;right:7px;top:10px;height:2px;background:var(--line2);box-shadow:0 6px 0 var(--line2),0 12px 0 var(--line2)}
+.sg-ico::after{content:"";position:absolute;left:7px;width:14px;bottom:7px;height:3px;border-radius:2px;background:var(--blue)}
+.sg-doc .m{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
+.sg-doc b{font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sg-doc small{font-size:12px;color:var(--ink3)}
+.sg-main{flex:1;min-width:0;display:flex;flex-direction:column;background:var(--ground)}
+.sg-top{height:72px;flex:none;display:flex;align-items:center;gap:14px;padding:0 24px;background:#fff;border-bottom:1px solid var(--line)}
+.sg-top .t{flex:1;min-width:0}
+.sg-top .t b{display:block;font-size:16px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sg-top .t small{font-size:12px;color:var(--ink3)}
+.sg-stage{flex:1;overflow:hidden;display:flex;gap:20px;padding:24px 24px 0}
+.sg-thumbs{width:64px;flex:none;display:flex;flex-direction:column;gap:10px}
+.sg-th{height:84px;border-radius:6px;background:#fff;border:1px solid var(--line);position:relative;cursor:pointer}
+.sg-th.on{border-color:var(--blue);box-shadow:0 0 0 2px var(--blue-tint)}
+.sg-th span{position:absolute;bottom:-18px;left:0;right:0;text-align:center;font-family:var(--mono);font-size:10px;color:var(--ink3)}
+.sg-paper{flex:1;background:#fff;border:1px solid var(--line);border-radius:10px 10px 0 0;box-shadow:0 30px 60px -40px rgba(20,40,110,.35);padding:48px 64px;display:flex;flex-direction:column;gap:14px;overflow:hidden}
+.sg-paper h2{font-family:var(--display);font-size:26px;letter-spacing:-.02em;margin:0}
+.sg-paper .meta{display:flex;gap:24px;font-size:12px;color:var(--ink3);font-family:var(--mono);letter-spacing:.04em;text-transform:uppercase}
+.sg-cl{display:flex;flex-direction:column;gap:7px;padding:10px 12px;margin:0 -12px;border-radius:10px;position:relative}
+.sg-cl h3{margin:0;font-size:14px;font-weight:700}
+.sg-cl p{margin:0;font-size:13px;line-height:1.6;color:var(--ink2)}
+.sg-cl.flag{background:#FFF6F1;box-shadow:inset 0 0 0 1px #FFD9C6}
+.sg-flag{position:absolute;right:10px;top:10px;display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 8px;border-radius:6px;background:#fff;border:1px solid #FFD9C6;font-size:11px;font-weight:700;color:#9A3B0C}
+.sg-flag svg{width:13px;height:13px}
+.sg-fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:auto;padding-top:8px}
+.sg-field{height:84px;border-radius:10px;border:1.5px dashed var(--line2);position:relative;background:var(--ground)}
+.sg-field small{position:absolute;left:10px;top:8px;font-family:var(--mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink3)}
+.sg-field.done{border-style:solid;border-color:color-mix(in oklab,var(--blue) 35%,#fff);background:var(--blue-wash)}
+.sg-field.next{border-color:var(--blue);background:#fff;box-shadow:0 0 0 4px var(--blue-tint)}
+.sg-field svg{position:absolute;left:14px;right:14px;bottom:8px;width:calc(100% - 28px);height:44px}
+.sg-field .sig{fill:none;stroke:var(--blue-deep);stroke-width:2.2;stroke-linecap:round}
+.sg-field .here{position:absolute;left:10px;bottom:10px;font-size:12px;font-weight:700;color:var(--blue)}
+.sg-panel{width:380px;flex:none;background:#fff;border-left:1px solid var(--line);display:flex;flex-direction:column}
+.sg-ph{padding:18px 20px;border-bottom:1px solid var(--line)}
+.sg-pb{flex:1;overflow:auto;padding:20px;display:flex;flex-direction:column;gap:14px}
+.sg-step{display:grid;grid-template-columns:28px 1fr auto;gap:12px;align-items:center;padding:12px;border-radius:12px;border:1px solid var(--line)}
+.sg-num{width:28px;height:28px;border-radius:99px;display:grid;place-items:center;font-family:var(--mono);font-size:11px;font-weight:500;border:1px solid var(--line2);color:var(--ink2)}
+.sg-num.done{background:var(--blue);border-color:var(--blue);color:#fff}
+.sg-num.done svg{width:14px;height:14px}
+.sg-step b{display:block;font-size:14px}
+.sg-step small{display:block;font-size:12px;color:var(--ink3)}
+.sg-order{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--ink3)}
+.sg-pt{display:flex;gap:10px;font-size:14px;line-height:1.55}
+.sg-pt i{flex:none;width:6px;height:6px;border-radius:2px;background:var(--blue);transform:rotate(45deg);margin-top:8px}
+.sg-risk{padding:12px 14px;border-radius:12px;background:#FFF6F1;border:1px solid #FFD9C6;display:flex;flex-direction:column;gap:4px}
+.sg-risk b{font-size:13px;color:#7A2E08}
+.sg-risk span{font-size:13px;color:#5C2A12;line-height:1.5}
+.sg-tl{display:flex;flex-direction:column;gap:0;position:relative}
+.sg-tl div{display:grid;grid-template-columns:14px 1fr auto;gap:12px;padding:10px 0;font-size:13px;position:relative}
+.sg-tl div::before{content:"";width:9px;height:9px;border-radius:99px;background:#fff;border:2px solid var(--blue);margin-top:5px}
+.sg-tl div::after{content:"";position:absolute;left:5px;top:26px;bottom:-6px;width:1px;background:var(--line2)}
+.sg-tl div:last-child::after{display:none}
+.sg-tl time{font-family:var(--mono);font-size:10px;color:var(--ink3);padding-top:3px}
+.sg-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;height:100%;color:var(--ink3);text-align:center}
+.sg-empty b{color:var(--ink);font-size:15px}
+.u-scrim{position:absolute;inset:0;background:rgba(10,16,36,.36);backdrop-filter:blur(3px);display:grid;place-items:center;z-index:30;animation:u-fade .25s var(--ease)}
+@keyframes u-fade{from{opacity:0}}
+.u-modal{width:520px;background:#fff;border-radius:20px;box-shadow:0 40px 80px -20px rgba(10,16,36,.45);display:flex;flex-direction:column;animation:u-in .35s var(--ease)}
+.u-modal .hd{display:flex;align-items:center;justify-content:space-between;padding:22px 24px 14px}
+.u-modal .bd{padding:0 24px 20px;display:flex;flex-direction:column;gap:14px}
+.u-modal .ft{display:flex;justify-content:flex-end;gap:10px;padding:16px 24px;border-top:1px solid var(--line)}
+.u-field{display:flex;flex-direction:column;gap:6px}
+.u-field label{font-size:12px;font-weight:700;color:var(--ink2)}
+.u-field textarea{border:1px solid var(--line);border-radius:10px;padding:10px 12px;resize:none;height:84px;outline:0;font-size:14px}
+.u-field textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-tint)}
+.u-field .err{font-size:12px;color:#B42318;display:flex;gap:6px;align-items:center}
+.u-field.bad textarea{border-color:#E5484D;box-shadow:0 0 0 3px #FDECEC}
+.sg-rec{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);font-size:13px}
+.sg-rec b{flex:1}
+</style>
+
+  <nav class="u-rail" aria-label="Shabakkat">
+    <a href="Main.dc.html" aria-label="Shabakkat home"><svg class="mk" viewBox="0 0 30 30"><rect width="30" height="30" rx="9" style="fill: var(--blue)"></rect><path d="M7 13 13 7M7 19 19 7M7 25 25 7M13 25 25 13M19 25 25 19M17 7 23 13M11 7 23 19M7 9 21 23M7 15 17 25" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"></path></svg></a>
+    <span class="u-rlabel">Tools</span>
+    <a class="u-rb" href="Reach.dc.html" aria-label="Reach"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v7a2.5 2.5 0 0 1-2.5 2.5H11l-4.5 4v-4A2.5 2.5 0 0 1 4 13.5z"></path></svg></a>
+    <a class="u-rb on" href="Sign.dc.html" aria-label="Sign" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4.5l4 4L10 17H6v-4z"></path><path d="M4 20.5c2.5 0 3.2-2 5-2s2.2 1.6 4.2 1.6 3-1.2 6.8-1.2"></path></svg></a>
+    <a class="u-rb" href="Pulse.dc.html" aria-label="Pulse"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2.5-6 4 12 2.5-6H21"></path></svg></a>
+    <span class="u-rsep"></span>
+    <button class="u-rb" type="button" aria-label="Templates"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="3"></rect><path d="M8 9h8M8 13h5"></path></svg></button>
+    <button class="u-rb" type="button" aria-label="Settings" style="margin-top: auto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2.5v3M12 18.5v3M21.5 12h-3M5.5 12h-3M18.7 5.3l-2.1 2.1M7.4 16.6l-2.1 2.1M18.7 18.7l-2.1-2.1M7.4 7.4 5.3 5.3"></path></svg></button>
+    <span class="u-av" style="background: #fff; color: #0A1024; margin-top: 8px">HA</span>
+  </nav>
+
+  <aside class="sg-side" aria-label="Documents">
+    <div class="sg-sh">
+      <div style="display: flex; align-items: center; justify-content: space-between">
+        <h1 class="u-h" style="font-size: 24px">Contracts</h1>
+        <button class="u-btn pri sm" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg>New</button>
+      </div>
+      <div class="sg-status" role="tablist" aria-label="Status">
+        <sc-for list="{{statuses}}" as="f" hint-placeholder-count="5">
+          <button class="sg-chip {{f.cls}}" type="button" role="tab" aria-selected="{{f.sel}}" onClick="{{f.pick}}">{{f.label}} <i>{{f.count}}</i></button>
+        </sc-for>
+      </div>
+    </div>
+    <div class="sg-list">
+      <sc-for list="{{docs}}" as="d" hint-placeholder-count="4">
+        <button class="sg-doc {{d.cls}}" type="button" onClick="{{d.pick}}">
+          <span class="sg-ico"></span>
+          <span class="m"><b>{{d.title}}</b><small>{{d.party}}</small><span style="display: flex; gap: 6px; align-items: center"><span class="u-tag {{d.tagCls}}">{{d.statusLabel}}</span><small>{{d.when}}</small></span></span>
+        </button>
+      </sc-for>
+      <sc-if value="{{noDocs}}" hint-placeholder-val="{{ false }}">
+        <div class="sg-empty" style="padding: 48px 20px"><b>Nothing here yet</b><span>No contracts have this status.</span></div>
+      </sc-if>
+    </div>
+  </aside>
+
+  <main class="sg-main">
+    <div class="sg-top">
+      <div class="t"><b>{{doc.title}}</b><small>{{doc.party}} · {{doc.pages}} pages · updated {{doc.when}}</small></div>
+      <span class="u-tag {{doc.tagCls}}">{{doc.statusLabel}}</span>
+      <button class="u-btn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"></path></svg>Download</button>
+      <button class="u-btn pri" type="button" onClick="{{openModal}}" disabled="{{doneDoc}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 12 20 4l-6 16-3-7z"></path></svg>{{sendLabel}}</button>
+    </div>
+    <div class="sg-stage">
+      <div class="sg-thumbs" aria-label="Pages">
+        <div class="sg-th on"><span>1</span></div><div class="sg-th"><span>2</span></div><div class="sg-th"><span>3</span></div>
+      </div>
+      <article class="sg-paper">
+        <div class="meta"><span>Agreement</span><span>Ref [REF NO.]</span><span>Page 1 of {{doc.pages}}</span></div>
+        <h2>{{doc.title}}</h2>
+        <div class="sg-cl"><h3>1. Parties</h3><p>This agreement is made between Shabakkat [LEGAL ENTITY] and {{doc.party}} (“the Client”).</p></div>
+        <div class="sg-cl"><h3>2. Services</h3><p>The Client subscribes to the Shabakkat platform tools listed in Schedule A, delivered under the service levels in Schedule B.</p></div>
+        <div class="sg-cl flag">
+          <span class="sg-flag"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5l2 5.9 5.9 2-5.9 2-2 5.9-2-5.9-5.9-2 5.9-2z"></path></svg>Changed since v1</span>
+          <h3>3. Term and renewal</h3><p>The agreement runs for 24 months from the effective date and renews automatically unless either party gives 30 days’ written notice.</p>
+        </div>
+        <div class="sg-cl"><h3>4. Fees</h3><p>Fees are set out in Schedule C and invoiced [BILLING FREQUENCY].</p></div>
+        <div class="sg-fields">
+          <sc-for list="{{fields}}" as="f" hint-placeholder-count="3">
+            <div class="sg-field {{f.cls}}"><small>{{f.label}}</small>
+              <sc-if value="{{f.done}}" hint-placeholder-val="{{ false }}"><svg viewBox="0 0 300 44" preserveAspectRatio="none" aria-hidden="true"><path class="sig" d="{{f.path}}"></path></svg></sc-if>
+              <sc-if value="{{f.next}}" hint-placeholder-val="{{ false }}"><span class="here">Signs next →</span></sc-if>
+            </div>
+          </sc-for>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <aside class="sg-panel" aria-label="Details">
+    <div class="sg-ph">
+      <div class="u-tabs" role="tablist" aria-label="Details">
+        <sc-for list="{{tabs}}" as="t" hint-placeholder-count="3">
+          <button class="u-tab {{t.cls}}" type="button" role="tab" aria-selected="{{t.sel}}" onClick="{{t.pick}}">{{t.label}}</button>
+        </sc-for>
+      </div>
+    </div>
+    <div class="sg-pb">
+      <sc-if value="{{tabSigners}}" hint-placeholder-val="{{ true }}">
+        <div class="sg-order"><span class="u-lbl">Signing order</span><span style="margin-left: auto">Sequential</span></div>
+        <sc-for list="{{signers}}" as="p" hint-placeholder-count="3">
+          <div class="sg-step">
+            <span class="sg-num {{p.numCls}}"><sc-if value="{{p.done}}" hint-placeholder-val="{{ false }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m5 12 5 5 9-10"></path></svg></sc-if><sc-if value="{{p.notDone}}" hint-placeholder-val="{{ true }}"><span>{{p.n}}</span></sc-if></span>
+            <div><b>{{p.name}}</b><small>{{p.role}} · {{p.state}}</small></div>
+            <sc-if value="{{p.canRemind}}" hint-placeholder-val="{{ false }}"><button class="u-btn sm" type="button" onClick="{{p.remind}}" disabled="{{p.reminded}}">{{p.remindLabel}}</button></sc-if>
+          </div>
+        </sc-for>
+        <div class="u-card" style="padding: 14px; display: flex; gap: 12px; align-items: center">
+          <div style="flex: 1"><span class="u-lbl">Progress</span><div class="u-h" style="font-size: 22px">{{progress}}</div></div>
+          <a class="u-btn sm" href="Reach.dc.html">Open chat in Reach</a>
+        </div>
+      </sc-if>
+      <sc-if value="{{tabAi}}" hint-placeholder-val="{{ false }}">
+        <span class="u-lbl">Summary · Shabakkat AI</span>
+        <div class="sg-pt"><i></i><span>A 24-month platform agreement covering the tools in Schedule A.</span></div>
+        <div class="sg-pt"><i></i><span>Renews automatically; either side can exit with 30 days’ notice.</span></div>
+        <div class="sg-pt"><i></i><span>Fees and billing frequency sit in Schedule C.</span></div>
+        <div class="sg-risk"><b>Changed since v1 — clause 3</b><span>Term extended from 12 to 24 months; notice period reduced from 60 to 30 days.</span></div>
+        <div class="u-card" style="padding: 14px; font-size: 12px; color: var(--ink3); line-height: 1.5">AI summaries help reviewers orient. They are not legal advice — read the full clause before signing.</div>
+      </sc-if>
+      <sc-if value="{{tabLog}}" hint-placeholder-val="{{ false }}">
+        <div class="sg-tl">
+          <sc-for list="{{log}}" as="l" hint-placeholder-count="4"><div><span>{{l.text}}</span><time>{{l.at}}</time></div></sc-for>
+        </div>
+      </sc-if>
+    </div>
+  </aside>
+
+  <sc-if value="{{modal}}" hint-placeholder-val="{{ false }}">
+    <div class="u-scrim">
+      <div class="u-modal" role="dialog" aria-modal="true" aria-labelledby="sg-mt">
+        <div class="hd"><h2 class="u-h" id="sg-mt" style="font-size: 22px">Send for signature</h2><button class="rc-ib u-btn sm" type="button" aria-label="Close" onClick="{{closeModal}}">Close</button></div>
+        <div class="bd">
+          <span class="u-lbl">Recipients · in order</span>
+          <sc-for list="{{signers}}" as="p" hint-placeholder-count="3">
+            <div class="sg-rec"><span class="sg-num">{{p.n}}</span><b>{{p.name}}</b><span class="u-tag">{{p.role}}</span></div>
+          </sc-for>
+          <div class="u-field {{msgCls}}">
+            <label for="sg-msg">Message to signers</label>
+            <textarea id="sg-msg" value="{{msg}}" onChange="{{onMsg}}" placeholder="Add a short note"></textarea>
+            <sc-if value="{{msgErr}}" hint-placeholder-val="{{ false }}"><span class="err">Add a message so signers know what they are signing.</span></sc-if>
+          </div>
+        </div>
+        <div class="ft"><button class="u-btn" type="button" onClick="{{closeModal}}">Cancel</button><button class="u-btn pri" type="button" onClick="{{confirmSend}}">Send now</button></div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{toast}}" hint-placeholder-val="{{ false }}">
+    <div class="u-toast" role="status"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m5 12 5 5 9-10"></path></svg>{{toast}}</div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#1B4DFF","options":["#1B4DFF","#0F62FE","#2A3FD8","#0A6CD9"]},"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { status: 'all', sel: 'd1', tab: 'signers', reminded: {}, modal: false, msg: 'Please review and sign the updated agreement.', tried: false, sentDocs: {}, toast: '' };
+    const S1 = 'M6 30c14-18 22-26 30-22s-8 26 2 26 18-22 28-22-4 20 6 20 14-12 22-12 4 10 14 10 20-8 34-8 30 4 60 2';
+    const S2 = 'M8 28c20-4 26-20 38-20s-6 22 8 22 26-24 40-24-10 26 6 26 30-14 50-14 20 6 40 4';
+    this.docs = [
+      { id: 'd1', title: 'Supply renewal 2027', party: 'Noon Home Supplies', status: 'await', pages: 3, when: '2h ago', signers: [{ name: 'Layla Haddad', role: 'Client', done: true, path: S1 }, { name: 'Haidar Ahmad', role: 'Shabakkat', done: true, path: S2 }, { name: 'Finance approver', role: 'Client', done: false }] },
+      { id: 'd2', title: 'Service agreement — Khatib Logistics', party: 'Khatib Logistics', status: 'await', pages: 5, when: 'today', signers: [{ name: 'Omar Khatib', role: 'Client', done: false }, { name: 'Haidar Ahmad', role: 'Shabakkat', done: false }] },
+      { id: 'd3', title: 'Pilot agreement', party: 'Mansoori Clinics', status: 'done', pages: 4, when: '12 Sep', signers: [{ name: 'Noura Al Mansoori', role: 'Client', done: true, path: S1 }, { name: 'Haidar Ahmad', role: 'Shabakkat', done: true, path: S2 }] },
+      { id: 'd4', title: 'Platform agreement — draft', party: 'Aziz Studio', status: 'draft', pages: 3, when: 'Mon', signers: [{ name: 'Rania Aziz', role: 'Client', done: false }, { name: 'Haidar Ahmad', role: 'Shabakkat', done: false }] }
+    ];
+  }
+  componentWillUnmount() { clearTimeout(this.tt); }
+  flash(m) { clearTimeout(this.tt); this.setState({ toast: m }); this.tt = setTimeout(() => this.setState({ toast: '' }), 2200); }
+  renderVals() {
+    const s = this.state;
+    const labels = { draft: 'Draft', await: 'Awaiting', done: 'Completed' };
+    const tagc = { draft: '', await: 'warn', done: 'ok' };
+    const effStatus = (d) => (s.sentDocs[d.id] && d.status === 'draft' ? 'await' : d.status);
+    const st = [['all', 'All'], ['draft', 'Drafts'], ['await', 'Awaiting'], ['done', 'Completed'], ['expired', 'Expired']];
+    const shown = this.docs.filter((d) => s.status === 'all' || effStatus(d) === s.status);
+    const doc = this.docs.find((d) => d.id === s.sel) || this.docs[0];
+    const es = effStatus(doc);
+    const nextIdx = doc.signers.findIndex((p) => !p.done);
+    const dec = (d) => ({ ...d, statusLabel: labels[effStatus(d)], tagCls: tagc[effStatus(d)] });
+    const signers = doc.signers.map((p, i) => {
+      const key = doc.id + i; const rem = !!s.reminded[key];
+      return { ...p, n: String(i + 1), numCls: p.done ? 'done' : '', notDone: !p.done,
+        state: p.done ? 'Signed' : (i === nextIdx && es === 'await' ? 'Viewed · waiting' : 'Not yet sent'),
+        canRemind: !p.done && i === nextIdx && es === 'await', reminded: rem, remindLabel: rem ? 'Reminded' : 'Remind',
+        remind: () => { this.setState({ reminded: { ...s.reminded, [key]: true } }); this.flash('Reminder sent to ' + p.name); } };
+    });
+    const doneN = doc.signers.filter((p) => p.done).length;
+    const msgErr = s.tried && !s.msg.trim();
+    return {
+      accent: this.props.accent || '#1B4DFF',
+      statuses: st.map(([k, label]) => ({ label, count: k === 'all' ? this.docs.length : this.docs.filter((d) => effStatus(d) === k).length, cls: s.status === k ? 'on' : '', sel: s.status === k ? 'true' : 'false', pick: () => this.setState({ status: k }) })),
+      docs: shown.map((d) => ({ ...dec(d), cls: d.id === doc.id ? 'on' : '', pick: () => this.setState({ sel: d.id }) })),
+      noDocs: shown.length === 0,
+      doc: dec(doc),
+      doneDoc: es === 'done',
+      sendLabel: es === 'done' ? 'Completed' : (es === 'await' ? 'Resend' : 'Send for signature'),
+      fields: doc.signers.slice(0, 3).map((p, i) => ({ label: p.name, done: p.done, path: p.path || '', next: !p.done && i === nextIdx && es === 'await', cls: p.done ? 'done' : (i === nextIdx && es === 'await' ? 'next' : '') })),
+      tabs: [['signers', 'Signers'], ['ai', 'AI summary'], ['log', 'Activity']].map(([k, label]) => ({ label, cls: s.tab === k ? 'on' : '', sel: s.tab === k ? 'true' : 'false', pick: () => this.setState({ tab: k }) })),
+      tabSigners: s.tab === 'signers', tabAi: s.tab === 'ai', tabLog: s.tab === 'log',
+      signers,
+      progress: doneN + ' of ' + doc.signers.length + ' signed',
+      log: [{ text: 'Created from “Platform agreement” template', at: 'Mon 09:10' }, { text: 'Sent to ' + doc.signers[0].name, at: 'Mon 09:14' }, { text: doc.signers[0].name + (doc.signers[0].done ? ' signed' : ' viewed'), at: 'Tue 11:02' }, { text: 'AI flagged a change in clause 3', at: 'Tue 11:03' }],
+      modal: s.modal,
+      openModal: () => this.setState({ modal: true, tried: false }),
+      closeModal: () => this.setState({ modal: false }),
+      msg: s.msg, onMsg: (e) => this.setState({ msg: e.target.value }),
+      msgErr, msgCls: msgErr ? 'bad' : '',
+      confirmSend: () => {
+        if (!s.msg.trim()) { this.setState({ tried: true }); return; }
+        this.setState({ modal: false, sentDocs: { ...s.sentDocs, [doc.id]: true } }); this.flash('Sent to ' + doc.signers.length + ' signers');
+      },
+      toast: s.toast
+    };
+  }
+}
+</script>
+</body>
+</html>

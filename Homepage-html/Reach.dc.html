@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Shabakkat Reach — Inbox</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=Cairo:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div class="u-app" style="width: 1440px; height: 900px; font-family: Cairo, 'Segoe UI', system-ui, sans-serif; color: #0A1024; --blue: {{accent}}">
+<style>
+.u-app{--ink:#0A1024;--ink2:#434C63;--ink3:#687188;--line:#E2E6EF;--line2:#CCD3E1;--ground:#F5F7FB;--paper:#fff;--blue-deep:color-mix(in oklab,var(--blue) 68%,#000);--blue-tint:color-mix(in oklab,var(--blue) 9%,#fff);--blue-wash:color-mix(in oklab,var(--blue) 4%,#fff);--mono:"IBM Plex Mono",ui-monospace,monospace;--display:"Bricolage Grotesque",system-ui,sans-serif;--ease:cubic-bezier(.2,.75,.1,1);display:flex;background:var(--ground);overflow:hidden;position:relative;font-size:14px;-webkit-font-smoothing:antialiased}
+.u-app *,.u-app *::before,.u-app *::after{box-sizing:border-box}
+.u-app button,.u-app input,.u-app textarea{font:inherit;color:inherit}
+.u-app a{color:inherit;text-decoration:none}
+.u-app :focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.u-rail{width:72px;flex:none;background:var(--ink);display:flex;flex-direction:column;align-items:center;gap:6px;padding:18px 0}
+.u-rail .mk{width:36px;height:36px;margin-bottom:14px}
+.u-rb{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;color:rgba(255,255,255,.62);border:0;background:none;cursor:pointer;position:relative;transition:all .18s var(--ease)}
+.u-rb:hover{color:#fff;background:rgba(255,255,255,.08)}
+.u-rb.on{color:#fff;background:var(--blue)}
+.u-rb svg{width:20px;height:20px}
+.u-rsep{width:28px;height:1px;background:rgba(255,255,255,.14);margin:8px 0}
+.u-rlabel{font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:rgba(255,255,255,.45);text-transform:uppercase}
+.u-av{width:36px;height:36px;border-radius:99px;display:grid;place-items:center;font-size:12px;font-weight:700;flex:none;background:var(--blue-tint);color:var(--blue-deep)}
+.av-wa{background:#E6F0FF;color:#0B2B99}.av-em{background:#EEF0F5;color:#2A3247}.av-wc{background:#FFF1EA;color:#8A3208}
+.u-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:36px;padding:0 14px;border-radius:10px;border:1px solid var(--line2);background:#fff;font-weight:600;font-size:13px;cursor:pointer;transition:all .18s var(--ease);white-space:nowrap}
+.u-btn:hover{border-color:var(--ink)}
+.u-btn svg{width:16px;height:16px}
+.u-btn.pri{background:var(--blue);border-color:var(--blue);color:#fff}
+.u-btn.pri:hover{background:var(--blue-deep);border-color:var(--blue-deep)}
+.u-btn[disabled]{opacity:.45;cursor:not-allowed}
+.u-btn.sm{height:30px;padding:0 10px;font-size:12px;border-radius:8px}
+.u-tag{display:inline-flex;align-items:center;gap:6px;height:22px;padding:0 8px;border-radius:6px;font-family:var(--mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;background:var(--ground);color:var(--ink2);border:1px solid var(--line)}
+.u-tag.blue{background:var(--blue-tint);color:var(--blue-deep);border-color:transparent}
+.u-tag.warn{background:#FFF1EA;color:#9A3B0C;border-color:transparent}
+.u-tag.ok{background:#EAF6EF;color:#1D6B3E;border-color:transparent}
+.u-input{display:flex;align-items:center;gap:8px;height:38px;padding:0 12px;border-radius:10px;border:1px solid var(--line);background:#fff;color:var(--ink3)}
+.u-input:focus-within{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-tint)}
+.u-input input{border:0;outline:0;background:none;flex:1;min-width:0;color:var(--ink)}
+.u-input svg{width:16px;height:16px;flex:none}
+.u-tabs{display:flex;gap:4px;padding:3px;border-radius:10px;background:var(--ground);border:1px solid var(--line)}
+.u-tab{flex:1;height:30px;border:0;background:none;border-radius:8px;font-size:12px;font-weight:700;color:var(--ink3);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.u-tab.on{background:#fff;color:var(--ink);box-shadow:0 1px 2px rgba(10,16,36,.08)}
+.u-tab i{font-style:normal;font-family:var(--mono);font-size:10px;color:var(--ink3)}
+.u-h{font-family:var(--display);font-weight:650;letter-spacing:-.02em;margin:0}
+.u-lbl{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3)}
+.u-card{background:#fff;border:1px solid var(--line);border-radius:14px}
+.u-skel{height:10px;border-radius:6px;background:linear-gradient(90deg,var(--line) 0%,#F0F3F8 50%,var(--line) 100%);background-size:200% 100%;animation:u-sh 1.1s linear infinite}
+@keyframes u-sh{to{background-position:-200% 0}}
+@keyframes u-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.u-toast{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);display:flex;align-items:center;gap:10px;height:44px;padding:0 16px;border-radius:12px;background:var(--ink);color:#fff;font-weight:600;animation:u-in .3s var(--ease);z-index:20}
+.u-toast svg{width:18px;height:18px;color:#8FB0FF}
+
+/* reach */
+.rc-side{width:320px;flex:none;background:#fff;border-right:1px solid var(--line);display:flex;flex-direction:column}
+.rc-sh{padding:20px 18px 14px;display:flex;flex-direction:column;gap:14px;border-bottom:1px solid var(--line)}
+.rc-list{flex:1;overflow:auto;padding:8px}
+.rc-item{width:100%;display:flex;gap:12px;padding:12px;border-radius:12px;border:1px solid transparent;background:none;text-align:left;cursor:pointer;transition:background .18s var(--ease)}
+.rc-item:hover{background:var(--ground)}
+.rc-item.on{background:var(--blue-wash);border-color:color-mix(in oklab,var(--blue) 25%,#fff)}
+.rc-item .m{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
+.rc-item .r1{display:flex;align-items:center;gap:8px}
+.rc-item b{font-size:14px;font-weight:700;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rc-item time{font-family:var(--mono);font-size:10px;color:var(--ink3)}
+.rc-item p{margin:0;font-size:13px;color:var(--ink2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rc-item .r3{display:flex;gap:6px;align-items:center;margin-top:3px}
+.rc-dot{width:8px;height:8px;border-radius:99px;background:var(--blue);flex:none}
+.rc-empty{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;padding:48px 24px;color:var(--ink3)}
+.rc-empty svg{width:40px;height:40px;color:var(--line2)}
+.rc-empty b{color:var(--ink);font-size:15px}
+.rc-main{flex:1;min-width:0;display:flex;flex-direction:column;background:var(--ground)}
+.rc-th{height:72px;flex:none;display:flex;align-items:center;gap:14px;padding:0 24px;background:#fff;border-bottom:1px solid var(--line)}
+.rc-th .who{flex:1;min-width:0}
+.rc-th .who b{display:block;font-size:16px;font-weight:700}
+.rc-th .who small{display:flex;gap:8px;align-items:center;font-size:12px;color:var(--ink3)}
+.rc-msgs{flex:1;overflow:auto;padding:24px 32px;display:flex;flex-direction:column;gap:12px}
+.rc-day{align-self:center;font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--ink3);text-transform:uppercase;padding:4px 10px;border-radius:99px;background:#fff;border:1px solid var(--line)}
+.rc-m{max-width:62%;display:flex;flex-direction:column;gap:4px;animation:u-in .35s var(--ease)}
+.rc-m .b{padding:12px 16px;border-radius:16px;font-size:14px;line-height:1.5;background:#fff;border:1px solid var(--line);border-bottom-left-radius:4px}
+.rc-m.out{align-self:flex-end;align-items:flex-end}
+.rc-m.out .b{background:var(--blue);color:#fff;border-color:var(--blue);border-bottom-left-radius:16px;border-bottom-right-radius:4px}
+.rc-m .t{font-family:var(--mono);font-size:10px;color:var(--ink3)}
+.rc-ai{margin:0 32px 12px;border-radius:16px;background:#fff;border:1px solid color-mix(in oklab,var(--blue) 35%,#fff);padding:14px 16px;display:flex;flex-direction:column;gap:10px;box-shadow:0 12px 30px -20px rgba(20,40,110,.5)}
+.rc-ai .hd{display:flex;align-items:center;gap:10px}
+.rc-ai .hd svg{width:16px;height:16px;color:var(--blue)}
+.rc-ai .hd b{font-size:13px;font-weight:700}
+.rc-ai .hd .u-tabs{margin-left:auto;width:120px}
+.rc-ai p{margin:0;font-size:14px;line-height:1.55;color:var(--ink)}
+.rc-ai p.ar{direction:rtl;text-align:right}
+.rc-ai .act{display:flex;gap:8px}
+.rc-comp{margin:0 32px 24px;border-radius:16px;background:#fff;border:1px solid var(--line);padding:12px;display:flex;flex-direction:column;gap:10px}
+.rc-comp:focus-within{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-tint)}
+.rc-comp textarea{border:0;outline:0;resize:none;height:52px;background:none;font-size:14px;line-height:1.5}
+.rc-comp .bar{display:flex;align-items:center;gap:6px}
+.rc-ib{width:32px;height:32px;border-radius:8px;border:0;background:none;display:grid;place-items:center;color:var(--ink3);cursor:pointer}
+.rc-ib:hover{background:var(--ground);color:var(--ink)}
+.rc-ib svg{width:17px;height:17px}
+.rc-prof{width:320px;flex:none;background:#fff;border-left:1px solid var(--line);padding:24px 20px;display:flex;flex-direction:column;gap:18px;overflow:auto}
+.rc-prof .top{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.rc-prof .top .u-av{width:64px;height:64px;font-size:20px}
+.rc-prof .top b{font-size:17px}
+.rc-prof .top small{color:var(--ink3)}
+.rc-kv{display:grid;grid-template-columns:90px 1fr;gap:8px 12px;font-size:13px}
+.rc-kv dt{color:var(--ink3)}
+.rc-kv dd{margin:0;font-weight:600}
+.rc-x{padding:14px;display:flex;flex-direction:column;gap:10px}
+.rc-x .hd{display:flex;align-items:center;gap:8px}
+.rc-x .hd svg{width:16px;height:16px;color:var(--blue)}
+.rc-x .hd b{font-size:13px;flex:1}
+.rc-prog{height:6px;border-radius:99px;background:var(--line);overflow:hidden}
+.rc-prog span{display:block;height:100%;background:var(--blue);border-radius:inherit}
+.rc-spark{width:100%;height:44px}
+</style>
+
+  <nav class="u-rail" aria-label="Shabakkat">
+    <a href="Main.dc.html" aria-label="Shabakkat home"><svg class="mk" viewBox="0 0 30 30"><rect width="30" height="30" rx="9" style="fill: var(--blue)"></rect><path d="M7 13 13 7M7 19 19 7M7 25 25 7M13 25 25 13M19 25 25 19M17 7 23 13M11 7 23 19M7 9 21 23M7 15 17 25" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"></path></svg></a>
+    <span class="u-rlabel">Tools</span>
+    <a class="u-rb on" href="Reach.dc.html" aria-label="Reach" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v7a2.5 2.5 0 0 1-2.5 2.5H11l-4.5 4v-4A2.5 2.5 0 0 1 4 13.5z"></path></svg></a>
+    <a class="u-rb" href="Sign.dc.html" aria-label="Sign"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4.5l4 4L10 17H6v-4z"></path><path d="M4 20.5c2.5 0 3.2-2 5-2s2.2 1.6 4.2 1.6 3-1.2 6.8-1.2"></path></svg></a>
+    <a class="u-rb" href="Pulse.dc.html" aria-label="Pulse"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2.5-6 4 12 2.5-6H21"></path></svg></a>
+    <span class="u-rsep"></span>
+    <button class="u-rb" type="button" aria-label="Contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="8" r="3.5"></circle><path d="M5 20c.8-3.5 3.6-5.5 7-5.5s6.2 2 7 5.5"></path></svg></button>
+    <button class="u-rb" type="button" aria-label="Settings" style="margin-top: auto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2.5v3M12 18.5v3M21.5 12h-3M5.5 12h-3M18.7 5.3l-2.1 2.1M7.4 16.6l-2.1 2.1M18.7 18.7l-2.1-2.1M7.4 7.4 5.3 5.3"></path></svg></button>
+    <span class="u-av" style="background: #fff; color: #0A1024; margin-top: 8px">HA</span>
+  </nav>
+
+  <aside class="rc-side" aria-label="Conversations">
+    <div class="rc-sh">
+      <div style="display: flex; align-items: center; justify-content: space-between">
+        <h1 class="u-h" style="font-size: 24px">Inbox</h1>
+        <button class="u-btn pri sm" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg>New</button>
+      </div>
+      <label class="u-input"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"></circle><path d="m20 20-4-4"></path></svg><input type="search" placeholder="Search people" aria-label="Search conversations" value="{{q}}" onChange="{{onQ}}"></label>
+      <div class="u-tabs" role="tablist" aria-label="Channel">
+        <sc-for list="{{filters}}" as="f" hint-placeholder-count="4">
+          <button class="u-tab {{f.cls}}" type="button" role="tab" aria-selected="{{f.sel}}" onClick="{{f.pick}}">{{f.label}} <i>{{f.count}}</i></button>
+        </sc-for>
+      </div>
+    </div>
+    <div class="rc-list">
+      <sc-for list="{{list}}" as="c" hint-placeholder-count="5">
+        <button class="rc-item {{c.cls}}" type="button" onClick="{{c.pick}}">
+          <span class="u-av av-{{c.ch}}">{{c.ini}}</span>
+          <span class="m">
+            <span class="r1"><b>{{c.name}}</b><time>{{c.time}}</time></span>
+            <p>{{c.preview}}</p>
+            <span class="r3"><span class="u-tag">{{c.channel}}</span><sc-if value="{{c.sla}}" hint-placeholder-val="{{ false }}"><span class="u-tag warn">{{c.sla}}</span></sc-if><sc-if value="{{c.unread}}" hint-placeholder-val="{{ false }}"><span class="rc-dot" style="margin-left: auto" aria-label="Unread"></span></sc-if></span>
+          </span>
+        </button>
+      </sc-for>
+      <sc-if value="{{empty}}" hint-placeholder-val="{{ false }}">
+        <div class="rc-empty">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"></circle><path d="m20 20-4-4"></path></svg>
+          <b>No conversations match</b>
+          <span>Try another name or clear the filter.</span>
+          <button class="u-btn sm" type="button" onClick="{{clear}}">Clear search</button>
+        </div>
+      </sc-if>
+    </div>
+  </aside>
+
+  <main class="rc-main">
+    <div class="rc-th">
+      <span class="u-av av-{{cur.ch}}">{{cur.ini}}</span>
+      <div class="who"><b>{{cur.name}}</b><small><span class="u-tag">{{cur.channel}}</span>{{cur.company}}</small></div>
+      <span class="u-tag {{statusCls}}">{{statusLabel}}</span>
+      <button class="u-btn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="8"></circle><path d="M12 8v4l2.5 2"></path></svg>Snooze</button>
+      <button class="u-btn pri" type="button" onClick="{{resolve}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m5 12 5 5 9-10"></path></svg>{{resolveLabel}}</button>
+    </div>
+    <div class="rc-msgs" aria-live="polite">
+      <span class="rc-day">Today</span>
+      <sc-for list="{{msgs}}" as="m" hint-placeholder-count="3">
+        <div class="rc-m {{m.dir}}"><div class="b" dir="auto">{{m.text}}</div><span class="t">{{m.meta}}</span></div>
+      </sc-for>
+    </div>
+    <sc-if value="{{showAi}}" hint-placeholder-val="{{ true }}">
+      <div class="rc-ai">
+        <div class="hd">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5l2 5.9 5.9 2-5.9 2-2 5.9-2-5.9-5.9-2 5.9-2z"></path></svg>
+          <b>Suggested reply</b><span class="u-lbl">Shabakkat AI</span>
+          <div class="u-tabs" role="tablist" aria-label="Reply language">
+            <button class="u-tab {{enCls}}" type="button" onClick="{{setEn}}">EN</button>
+            <button class="u-tab {{arCls}}" type="button" onClick="{{setAr}}">عربي</button>
+          </div>
+        </div>
+        <sc-if value="{{aiLoading}}" hint-placeholder-val="{{ false }}">
+          <div style="display: flex; flex-direction: column; gap: 8px; padding: 4px 0"><div class="u-skel" style="width: 92%"></div><div class="u-skel" style="width: 76%"></div><div class="u-skel" style="width: 54%"></div></div>
+        </sc-if>
+        <sc-if value="{{aiReady}}" hint-placeholder-val="{{ true }}">
+          <p class="{{aiCls}}">{{aiText}}</p>
+        </sc-if>
+        <div class="act">
+          <button class="u-btn pri sm" type="button" onClick="{{useAi}}" disabled="{{aiLoading}}">Use reply</button>
+          <button class="u-btn sm" type="button" onClick="{{rewrite}}" disabled="{{aiLoading}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 5v6h-6"></path></svg>Rewrite</button>
+          <button class="u-btn sm" type="button" onClick="{{hideAi}}" style="margin-left: auto">Dismiss</button>
+        </div>
+      </div>
+    </sc-if>
+    <div class="rc-comp">
+      <label for="rc-draft" class="u-lbl">Reply via {{cur.channel}}</label>
+      <textarea id="rc-draft" placeholder="Write a reply…" value="{{draft}}" onChange="{{onDraft}}"></textarea>
+      <div class="bar">
+        <button class="rc-ib" type="button" aria-label="Attach file"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="m20 11.5-7.8 7.8a5 5 0 0 1-7-7l8.4-8.4a3.3 3.3 0 0 1 4.7 4.7l-8.4 8.4a1.7 1.7 0 0 1-2.4-2.4l7.8-7.8"></path></svg></button>
+        <button class="rc-ib" type="button" aria-label="Insert template"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="3"></rect><path d="M8 9h8M8 13h5"></path></svg></button>
+        <button class="rc-ib" type="button" aria-label="Ask AI" onClick="{{showAiFn}}"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5l2 5.9 5.9 2-5.9 2-2 5.9-2-5.9-5.9-2 5.9-2z"></path></svg></button>
+        <span class="u-lbl" style="margin-left: auto">{{count}}</span>
+        <button class="u-btn pri" type="button" onClick="{{send}}" disabled="{{cantSend}}">Send<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
+      </div>
+    </div>
+  </main>
+
+  <aside class="rc-prof" aria-label="Customer profile">
+    <div class="top">
+      <span class="u-av av-{{cur.ch}}">{{cur.ini}}</span>
+      <b>{{cur.name}}</b><small>{{cur.company}}</small>
+      <div style="display: flex; gap: 6px"><sc-for list="{{cur.tags}}" as="t" hint-placeholder-count="2"><span class="u-tag blue">{{t}}</span></sc-for></div>
+    </div>
+    <dl class="rc-kv">
+      <dt>Phone</dt><dd>{{cur.phone}}</dd>
+      <dt>Language</dt><dd>{{cur.lang}}</dd>
+      <dt>Owner</dt><dd>Haidar A.</dd>
+    </dl>
+    <span class="u-lbl">Across Shabakkat</span>
+    <a class="u-card rc-x" href="Sign.dc.html">
+      <div class="hd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4.5l4 4L10 17H6v-4z"></path></svg><b>{{cur.contract}}</b><span class="u-tag">Sign</span></div>
+      <div class="rc-prog"><span style="width: {{cur.signPct}}"></span></div>
+      <span style="font-size: 12px; color: var(--ink2)">{{cur.signNote}}</span>
+    </a>
+    <a class="u-card rc-x" href="Pulse.dc.html">
+      <div class="hd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2.5-6 4 12 2.5-6H21"></path></svg><b>Satisfaction</b><span class="u-tag">Pulse</span></div>
+      <div style="display: flex; align-items: baseline; gap: 8px"><span class="u-h" style="font-size: 28px">{{cur.csat}}</span><span style="font-size: 12px; color: var(--ink3)">/ 5 · last 90 days</span></div>
+      <svg class="rc-spark" viewBox="0 0 260 44" preserveAspectRatio="none" aria-hidden="true"><path d="{{cur.spark}}" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="color: var(--blue)"></path></svg>
+    </a>
+  </aside>
+
+  <sc-if value="{{toast}}" hint-placeholder-val="{{ false }}">
+    <div class="u-toast" role="status"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m5 12 5 5 9-10"></path></svg>{{toast}}</div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#1B4DFF","options":["#1B4DFF","#0F62FE","#2A3FD8","#0A6CD9"]},"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { sel: 'c1', filter: 'all', q: '', draft: '', lang: 'en', ver: 0, aiLoading: false, aiHidden: false, sent: {}, resolved: {}, toast: '' };
+    this.convos = [
+      { id: 'c1', name: 'Layla Haddad', ini: 'LH', channel: 'WhatsApp', ch: 'wa', time: '2m', unread: true, sla: '4m left', company: 'Noon Home Supplies', phone: '+971 50 •••• 412', lang: 'Arabic, English', tags: ['VIP', 'Retail'], contract: 'Supply renewal 2027', signPct: '66%', signNote: '2 of 3 signers done', csat: '4.8', spark: 'M0 30 L40 26 L80 28 L120 18 L160 20 L200 10 L260 8',
+        msgs: [{ dir: 'in', text: 'Hi, can I change the delivery address on order #4821?', meta: '10:02' }, { dir: 'out', text: 'Of course, Layla. What is the new address?', meta: '10:04 · Haidar' }, { dir: 'in', text: 'شكراً! العنوان الجديد: شارع الوصل، دبي. هل يمكن التوصيل غداً؟', meta: '10:06' }],
+        ai: [['Done — I have updated order #4821 to Al Wasl Road, Dubai. It is booked for delivery tomorrow between 10 am and 2 pm.', 'تم — حدّثت الطلب ‎#4821‎ إلى شارع الوصل، دبي. التوصيل غداً بين ١٠ صباحاً و٢ ظهراً.'], ['All set. Order #4821 now ships to Al Wasl Road and arrives tomorrow morning. I will send the tracking link once it leaves.', 'تم التحديث. سيصل الطلب ‎#4821‎ إلى شارع الوصل صباح الغد، وسأرسل رابط التتبع عند الشحن.']] },
+      { id: 'c2', name: 'Omar Khatib', ini: 'OK', channel: 'Email', ch: 'em', time: '18m', unread: true, sla: '', company: 'Khatib Logistics', phone: '+962 7 •••• 190', lang: 'English', tags: ['Renewal'], contract: 'Service agreement', signPct: '33%', signNote: 'Waiting on Omar', csat: '4.3', spark: 'M0 20 L40 22 L80 16 L120 24 L160 18 L200 20 L260 14',
+        msgs: [{ dir: 'in', text: 'Re: renewal terms for 2027. Can we move to a 24-month term with a 30-day notice period?', meta: '09:41' }],
+        ai: [['Hi Omar — yes, we can offer a 24-month term with a 30-day notice period. I have prepared the updated agreement in Sign for your review.', 'مرحباً عمر — نعم، يمكننا تقديم مدة ٢٤ شهراً مع إشعار ٣٠ يوماً. جهّزت الاتفاقية المحدثة للمراجعة.'], ['Thanks Omar. A 24-month term with 30 days notice works for us — the revised contract is ready to sign whenever you are.', 'شكراً عمر. تناسبنا مدة ٢٤ شهراً مع إشعار ٣٠ يوماً، والعقد المعدّل جاهز للتوقيع.']] },
+      { id: 'c3', name: 'Noura Al Mansoori', ini: 'NM', channel: 'Chat', ch: 'wc', time: '1h', unread: false, sla: '', company: 'Mansoori Clinics', phone: '+971 55 •••• 007', lang: 'Arabic', tags: ['Onboarding'], contract: 'Pilot agreement', signPct: '100%', signNote: 'Signed · 12 Sep', csat: '4.9', spark: 'M0 32 L40 28 L80 22 L120 20 L160 14 L200 12 L260 6',
+        msgs: [{ dir: 'in', text: 'Do you have an Arabic invoice template?', meta: '09:05' }, { dir: 'out', text: 'We do — sharing it now.', meta: '09:07 · Sara' }],
+        ai: [['Here is the Arabic invoice template. You can set it as the default for your clinics in Settings → Documents.', 'إليك قالب الفاتورة بالعربية. يمكنك تعيينه افتراضياً من الإعدادات ← المستندات.'], ['Attached is the Arabic template. Want me to make it the default for all three clinics?', 'أرفقت القالب العربي. هل أجعله القالب الافتراضي لعياداتكم الثلاث؟']] },
+      { id: 'c4', name: 'Karim Saleh', ini: 'KS', channel: 'WhatsApp', ch: 'wa', time: '3h', unread: false, sla: '', company: 'Saleh & Co.', phone: '+961 3 •••• 554', lang: 'English', tags: ['SMB'], contract: 'Standard terms', signPct: '100%', signNote: 'Signed · 2 Aug', csat: '4.6', spark: 'M0 24 L40 20 L80 22 L120 16 L160 18 L200 14 L260 12',
+        msgs: [{ dir: 'out', text: 'Your replacement unit has shipped.', meta: '07:12 · Haidar' }, { dir: 'in', text: 'Thanks, received!', meta: '07:30' }],
+        ai: [['Glad it arrived, Karim. I will close this conversation — reply here any time.', 'سعيد بوصوله يا كريم. سأغلق المحادثة، ويمكنك الرد هنا في أي وقت.'], ['Great to hear. Anything else we can help with today?', 'رائع. هل هناك ما يمكننا مساعدتك به اليوم؟']] },
+      { id: 'c5', name: 'Rania Aziz', ini: 'RA', channel: 'Email', ch: 'em', time: 'Mon', unread: false, sla: '', company: 'Aziz Studio', phone: '+20 10 •••• 318', lang: 'English', tags: ['Trial'], contract: 'No contract yet', signPct: '0%', signNote: 'Draft in Sign', csat: '—', spark: 'M0 22 L260 22',
+        msgs: [{ dir: 'in', text: 'How many seats does the platform plan include?', meta: 'Mon 16:20' }],
+        ai: [['Hi Rania — the platform plan includes [SEATS] seats, and you can add more at any time from Settings → Team.', 'مرحباً رانيا — تتضمن خطة المنصة [SEATS] مقاعد، ويمكنك إضافة المزيد من الإعدادات ← الفريق.'], ['Good question. Platform includes [SEATS] seats; extra seats are [PRICE] each per month.', 'سؤال جيد. تتضمن المنصة [SEATS] مقاعد، والمقعد الإضافي [PRICE] شهرياً.']] }
+    ];
+  }
+  componentWillUnmount() { clearTimeout(this.t1); clearTimeout(this.t2); }
+  flash(msg) { clearTimeout(this.t2); this.setState({ toast: msg }); this.t2 = setTimeout(() => this.setState({ toast: '' }), 2200); }
+  renderVals() {
+    const s = this.state;
+    const tints = { wa: 'background: #E6F0FF; color: #0B2B99', em: 'background: #EEF0F5; color: #2A3247', wc: 'background: #FFF1EA; color: #8A3208' };
+    const fl = [['all', 'All'], ['wa', 'WhatsApp'], ['em', 'Email'], ['wc', 'Chat']];
+    const q = s.q.trim().toLowerCase();
+    const shown = this.convos.filter((c) => (s.filter === 'all' || c.ch === s.filter) && (!q || c.name.toLowerCase().includes(q)));
+    const cur = this.convos.find((c) => c.id === s.sel) || this.convos[0];
+    const extra = s.sent[cur.id] || [];
+    const allMsgs = cur.msgs.concat(extra);
+    const last = allMsgs[allMsgs.length - 1];
+    const resolved = !!s.resolved[cur.id];
+    const aiText = cur.ai[s.ver % cur.ai.length][s.lang === 'ar' ? 1 : 0];
+    return {
+      accent: this.props.accent || '#1B4DFF',
+      q: s.q, onQ: (e) => this.setState({ q: e.target.value }), clear: () => this.setState({ q: '', filter: 'all' }),
+      filters: fl.map(([k, label]) => ({ label, count: k === 'all' ? this.convos.length : this.convos.filter((c) => c.ch === k).length, cls: s.filter === k ? 'on' : '', sel: s.filter === k ? 'true' : 'false', pick: () => this.setState({ filter: k }) })),
+      list: shown.map((c) => {
+        const ex = s.sent[c.id]; const lp = ex && ex.length ? 'You: ' + ex[ex.length - 1].text : c.msgs[c.msgs.length - 1].text;
+        return { ...c, preview: lp, avStyle: tints[c.ch], cls: c.id === cur.id ? 'on' : '', unread: c.unread && c.id !== cur.id && !s.resolved[c.id], sla: s.resolved[c.id] ? '' : c.sla, pick: () => this.setState({ sel: c.id, draft: '', ver: 0, aiHidden: false, aiLoading: false }) };
+      }),
+      empty: shown.length === 0,
+      cur: { ...cur, avStyle: tints[cur.ch] },
+      msgs: allMsgs,
+      statusLabel: resolved ? 'Resolved' : (last && last.dir === 'in' ? 'Waiting on you' : 'Open'),
+      statusCls: resolved ? 'ok' : (last && last.dir === 'in' ? 'warn' : 'blue'),
+      resolveLabel: resolved ? 'Reopen' : 'Resolve',
+      resolve: () => { const r = { ...s.resolved, [cur.id]: !resolved }; this.setState({ resolved: r }); if (!resolved) this.flash('Conversation resolved'); },
+      showAi: !s.aiHidden, hideAi: () => this.setState({ aiHidden: true }), showAiFn: () => this.setState({ aiHidden: false }),
+      aiLoading: s.aiLoading, aiReady: !s.aiLoading, aiText, aiCls: s.lang === 'ar' ? 'ar' : '',
+      enCls: s.lang === 'en' ? 'on' : '', arCls: s.lang === 'ar' ? 'on' : '',
+      setEn: () => this.setState({ lang: 'en' }), setAr: () => this.setState({ lang: 'ar' }),
+      useAi: () => this.setState({ draft: aiText }),
+      rewrite: () => { this.setState({ aiLoading: true }); clearTimeout(this.t1); this.t1 = setTimeout(() => this.setState({ aiLoading: false, ver: this.state.ver + 1 }), 900); },
+      draft: s.draft, onDraft: (e) => this.setState({ draft: e.target.value }),
+      count: s.draft.length ? s.draft.length + ' chars' : '',
+      cantSend: !s.draft.trim(),
+      send: () => {
+        const t = s.draft.trim(); if (!t) return;
+        const list = (s.sent[cur.id] || []).concat([{ dir: 'out', text: t, meta: 'now · You' }]);
+        this.setState({ sent: { ...s.sent, [cur.id]: list }, draft: '', aiHidden: true });
+        this.flash('Sent via ' + cur.channel);
+      },
+      toast: s.toast
+    };
+  }
+}
+</script>
+</body>
+</html>
