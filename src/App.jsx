@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Home from './Home.jsx';
+import Home from './pages/home/Home.jsx';
 import Reach from './tools/Reach.jsx';
 import Sign from './tools/Sign.jsx';
 import Pulse from './tools/Pulse.jsx';
