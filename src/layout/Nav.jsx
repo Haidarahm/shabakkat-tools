@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Arrow, Chevron, LogoMark, TOOL_ICONS } from '../../icons.jsx';
-import { TOOLS } from './data.js';
+import { Arrow, Chevron, LogoMark, TOOL_ICONS } from '../icons.jsx';
+import { TOOLS } from '../pages/home/data.js';
 
 export default function Nav({ navRef, barRef }) {
   const [lang, setLang] = useState('en');
@@ -8,7 +8,7 @@ export default function Nav({ navRef, barRef }) {
   return (
     <header className="nav" ref={navRef}>
       <div className="wrap nav-in">
-        <a className="logo" href="#top" aria-label="Shabakkat home"><LogoMark /><span>shabakkat</span></a>
+        <a className="logo" href="/" aria-label="Shabakkat home"><LogoMark /><span>shabakkat</span></a>
         <nav aria-label="Main">
           <ul className="nav-links">
             <li className="has-menu">
@@ -24,12 +24,12 @@ export default function Nav({ navRef, barRef }) {
                     </a>
                   );
                 })}
-                <div className="menu-foot"><span>All three run on one Shabakkat account.</span><a className="link" href="#platform">How it fits</a></div>
+                <div className="menu-foot"><span>All three run on one Shabakkat account.</span><a className="link" href="/#platform">How it fits</a></div>
               </div>
             </li>
-            <li><a className="nav-a" href="#platform">Platform</a></li>
-            <li><a className="nav-a" href="#pricing">Pricing</a></li>
-            <li><a className="nav-a" href="#faq">FAQ</a></li>
+            <li><a className="nav-a" href="/#platform">Platform</a></li>
+            <li><a className="nav-a" href="/#pricing">Pricing</a></li>
+            <li><a className="nav-a" href="/#faq">FAQ</a></li>
           </ul>
         </nav>
         <div className="nav-right">
@@ -37,8 +37,8 @@ export default function Nav({ navRef, barRef }) {
             <button type="button" aria-pressed={lang === 'en'} onClick={() => setLang('en')}>EN</button>
             <button type="button" aria-pressed={lang === 'ar'} onClick={() => setLang('ar')} lang="ar">ع</button>
           </div>
-          <a className="nav-a" href="#top">Log in</a>
-          <a className="btn btn-primary btn-sm" href="#cta">Book demo</a>
+          <a className="nav-a" href="/">Log in</a>
+          <a className="btn btn-primary btn-sm" href="/#cta">Book demo</a>
         </div>
       </div>
       <div className="nav-progress" aria-hidden="true"><span ref={barRef} /></div>

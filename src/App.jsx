@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Layout from './layout/Layout.jsx';
 import Home from './pages/home/Home.jsx';
 import Reach from './tools/Reach.jsx';
 import Sign from './tools/Sign.jsx';
@@ -25,6 +26,12 @@ function ToolPage({ Tool }) {
 }
 
 export default function App() {
-  const Tool = TOOLS[window.location.pathname.replace(/\/$/, '')];
-  return Tool ? <ToolPage Tool={Tool} /> : <Home />;
+  const path = window.location.pathname.replace(/\/$/, '') || '/';
+  const Tool = TOOLS[path];
+
+  return (
+    <Layout>
+      {Tool ? <ToolPage Tool={Tool} /> : <Home />}
+    </Layout>
+  );
 }
