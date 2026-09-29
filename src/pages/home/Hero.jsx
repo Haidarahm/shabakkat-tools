@@ -109,14 +109,6 @@ export default function Hero({ heroRef, canvasRef, reduce }) {
           </div>
         </div>
       </div>
-
-      <div className="wrap hero-foot">
-        <span className="scroll-cue mono"><i />Scroll to explore</span>
-        <span className="hero-hint mono">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true"><path d="M9 3v10.5M9 3a2 2 0 0 1 4 0v7l4.5 1.1a2 2 0 0 1 1.5 2.3l-1 5.1A3 3 0 0 1 15 21h-4.3a3 3 0 0 1-2.5-1.3L5 15" /></svg>
-          Move or tap to pull the net
-        </span>
-      </div>
     </section>
   );
 }
