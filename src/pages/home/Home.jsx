@@ -24,8 +24,11 @@ export default function Home() {
     const measure = () => {
       hxOn.current = window.matchMedia('(min-width: 1024px)').matches && !reduce;
       if (!hxOn.current && track.current) track.current.style.transform = '';
-      const w = pv.current?.clientWidth;
-      if (w) root.current.style.setProperty('--pv', String(w / 1440));
+      const box = pv.current;
+      if (box) {
+        const s = Math.min(box.clientWidth / 1440, box.clientHeight / 900 || 1);
+        if (s > 0) root.current.style.setProperty('--pv', String(s));
+      }
     };
     const tick = () => {
       if (!hxOn.current || !hxEl.current) return;
