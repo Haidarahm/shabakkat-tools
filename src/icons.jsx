@@ -23,6 +23,7 @@ export const SignIco = ({ tail = true, ...p }) => (
   </svg>
 );
 export const PulseIco = ({ tail, ...p }) => <svg viewBox="0 0 24 24" strokeWidth="1.7" {...line} {...p}><path d="M3 12h4l2.5-6 4 12 2.5-6H21" /></svg>;
+export const HrIco = (p) => <svg viewBox="0 0 24 24" strokeWidth="1.7" {...line} {...p}><circle cx="12" cy="8" r="3.5" /><path d="M5 20c.8-3.5 3.6-5.5 7-5.5s6.2 2 7 5.5" /></svg>;
 export const TOOL_ICONS = { reach: ReachIco, sign: SignIco, pulse: PulseIco };
 
 export const LogoMark = ({ className = 'logo-mark' }) => (

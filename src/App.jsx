@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Layout from './layout/Layout.jsx';
 import Home from './pages/home/Home.jsx';
+import Hr from './pages/hr/Hr.jsx';
 import Reach from './tools/Reach.jsx';
 import Sign from './tools/Sign.jsx';
 import Pulse from './tools/Pulse.jsx';
@@ -31,7 +32,7 @@ export default function App() {
 
   return (
     <Layout>
-      {Tool ? <ToolPage Tool={Tool} /> : <Home />}
+      {Tool ? <ToolPage Tool={Tool} /> : path === '/hr' ? <Hr /> : <Home />}
     </Layout>
   );
 }

@@ -56,7 +56,7 @@ export default function Footer() {
             <a className="logo" href="/" aria-label="Shabakkat home"><LogoMark /><span>shabakkat</span></a>
             <p>One platform, three tools for the way you work with customers.</p>
           </div>
-          <nav className="foot-col" aria-label="Products"><h4>Products</h4>{TOOLS.map((t) => <a key={t.id} href={'/' + t.id}>{t.name}</a>)}</nav>
+          <nav className="foot-col" aria-label="Products"><h4>Products</h4>{TOOLS.map((t) => <a key={t.id} href={'/' + t.id}>{t.name}</a>)}<a href="/hr">HR System</a></nav>
           <nav className="foot-col" aria-label="Platform"><h4>Platform</h4><a href="/#platform">Platform</a><a href="/#pricing">Pricing</a><a href="/">Blogs</a></nav>
           <nav className="foot-col" aria-label="Account"><h4>Account</h4><a href="/">Log in</a><a href="/">العربية</a><a href="/#cta">Book demo</a></nav>
         </div>

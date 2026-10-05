@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Arrow, Chevron, LogoMark, TOOL_ICONS } from '../icons.jsx';
+import { Arrow, Chevron, HrIco, LogoMark, TOOL_ICONS } from '../icons.jsx';
 import { TOOLS } from '../pages/home/data.js';
 
 export default function Nav({ navRef, barRef }) {
@@ -24,6 +24,11 @@ export default function Nav({ navRef, barRef }) {
                     </a>
                   );
                 })}
+                <a className="menu-item" href="/hr">
+                  <span className="glyph"><HrIco /></span>
+                  <span><b>HR System</b><small>People, payroll and processes</small></span>
+                  <Arrow className="arr" width="18" height="18" />
+                </a>
                 <div className="menu-foot"><span>All three run on one Shabakkat account.</span><a className="link" href="/#platform">How it fits</a></div>
               </div>
             </li>
