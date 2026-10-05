@@ -12,7 +12,7 @@
 .hr-hero .lead{max-width:62ch}
 .hr-fade{animation:pop .8s var(--ease-out) both;animation-delay:calc(var(--i) * 110ms + 650ms)}
 .hr-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
-.hr-chips a{height:36px;padding:0 14px;border-radius:999px;border:1px solid var(--line2);background:rgba(255,255,255,.7);display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--ink2);transition:border-color var(--t-fast) var(--ease),color var(--t-fast) var(--ease),transform var(--t-fast) var(--ease)}
+.hr-chips a{height:36px;padding:0 14px;border-radius:999px;border:1px solid var(--line2);background:rgba(19,21,24,.7);display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--ink2);transition:border-color var(--t-fast) var(--ease),color var(--t-fast) var(--ease),transform var(--t-fast) var(--ease)}
 .hr-chips a:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-2px)}
 .hr-chips a span{font-family:var(--f-mono);font-size:11px;color:var(--blue)}
 
@@ -34,26 +34,26 @@
 .hr-screens{position:relative;display:grid;height:min(560px,100%);min-height:0}
 
 /* screen card */
-.hr-card{grid-area:1/1;min-height:0;border-radius:var(--r-l);background:#fff;border:1px solid var(--line);box-shadow:0 1px 0 rgba(10,16,36,.04),0 50px 100px -50px rgba(20,40,110,.45);display:flex;flex-direction:column;overflow:hidden;opacity:0;visibility:hidden;transform:translateY(48px) scale(.96);filter:blur(6px);transition:opacity var(--t-slow) var(--ease),transform var(--t-slow) var(--ease),filter var(--t-slow) var(--ease),visibility 0s linear var(--t-slow)}
+.hr-card{grid-area:1/1;min-height:0;border-radius:var(--r-l);background:var(--paper);border:1px solid var(--line);box-shadow:0 1px 0 rgba(0,0,0,.04),0 50px 100px -50px rgba(0,0,0,.45);display:flex;flex-direction:column;overflow:hidden;opacity:0;visibility:hidden;transform:translateY(48px) scale(.96);filter:blur(6px);transition:opacity var(--t-slow) var(--ease),transform var(--t-slow) var(--ease),filter var(--t-slow) var(--ease),visibility 0s linear var(--t-slow)}
 .hr-card.is-past{transform:translateY(-48px) scale(.96)}
 .hr-card.is-on{opacity:1;visibility:visible;transform:none;filter:none;transition-delay:0s}
 .hr-num{font-family:var(--f-mono);font-size:12px;font-weight:500}
 .hr-vis{flex:1;margin:0 14px 14px;border-radius:14px;background:var(--ground);padding:18px;display:flex;flex-direction:column;gap:10px;overflow:hidden;min-height:0}
 .hr-vis .kpis{margin:0}
 .is-on .hr-a{animation:pop .55s var(--ease-out) both;animation-delay:calc(var(--d,0) * 90ms + 250ms)}
-.hr-row{display:flex;align-items:center;gap:12px;padding:12px 14px;background:#fff;border:1px solid var(--line);border-radius:12px;font-size:14px;min-width:0}
+.hr-row{display:flex;align-items:center;gap:12px;padding:12px 14px;background:var(--paper);border:1px solid var(--line);border-radius:12px;font-size:14px;min-width:0}
 .hr-row b{display:block;font-weight:700;color:var(--ink)}
 .hr-row small{display:block;font-size:12px;color:var(--ink3)}
 .hr-row > :last-child{margin-left:auto;flex:none}
 .hr-av{width:32px;height:32px;border-radius:99px;background:var(--blue-tint);color:var(--blue-deep);display:grid;place-items:center;font-size:11px;font-weight:700;flex:none}
 .hr-pill{height:24px;padding:0 10px;border-radius:999px;font-family:var(--f-mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;display:inline-flex;align-items:center;background:var(--blue-tint);color:var(--blue-deep);white-space:nowrap}
-.hr-pill.solid{background:var(--blue);color:#fff}
+.hr-pill.solid{background:var(--blue);color:var(--ground)}
 .hr-pill.mute{background:var(--line);color:var(--ink2)}
 .hr-tog{display:block;width:36px;height:20px;border-radius:99px;background:var(--line2);position:relative;transition:background var(--t-mid) var(--ease) .7s}
-.hr-tog::after{content:"";position:absolute;left:2px;top:2px;width:16px;height:16px;border-radius:99px;background:#fff;box-shadow:0 1px 2px rgba(10,16,36,.2);transition:transform var(--t-mid) var(--ease) .7s}
+.hr-tog::after{content:"";position:absolute;left:2px;top:2px;width:16px;height:16px;border-radius:99px;background:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.2);transition:transform var(--t-mid) var(--ease) .7s}
 .is-on .hr-tog.on{background:var(--blue)}
 .is-on .hr-tog.on::after{transform:translateX(16px)}
-.hr-route{display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:12px 14px;background:#fff;border:1px solid var(--line);border-radius:12px}
+.hr-route{display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:12px 14px;background:var(--paper);border:1px solid var(--line);border-radius:12px}
 .hr-route .chip{margin:0}
 .hr-route svg{width:14px;height:14px;color:var(--ink3)}
 .hr-day{width:36px;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;flex:none}
@@ -61,14 +61,14 @@
 .hr-meter span{display:block;height:100%;width:var(--w);border-radius:inherit;background:var(--blue);transform-origin:0 50%}
 .is-on .hr-meter span{animation:hr-fill 1s var(--ease-out) both;animation-delay:calc(var(--d,0) * 90ms + 450ms)}
 @keyframes hr-fill{from{transform:scaleX(0)}}
-.hr-flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;padding:14px;background:#fff;border:1px solid var(--line);border-radius:12px}
+.hr-flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;padding:14px;background:var(--paper);border:1px solid var(--line);border-radius:12px}
 .hr-flow span{display:flex;flex-direction:column;gap:8px;font-family:var(--f-mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink3)}
 .hr-flow i{height:3px;border-radius:3px;background:var(--line)}
 .hr-flow .done{color:var(--ink)}
 .hr-flow .done i{background:var(--blue)}
 .hr-flow .now{color:var(--blue)}
 .hr-flow .now i{background:linear-gradient(90deg,var(--blue) 50%,var(--line) 50%)}
-.hr-vis .mini-dash{height:150px;margin:0;padding:14px;background:#fff;border:1px solid var(--line);border-radius:12px;flex:none}
+.hr-vis .mini-dash{height:150px;margin:0;padding:14px;background:var(--paper);border:1px solid var(--line);border-radius:12px;flex:none}
 .hr-vis .mini-dash i{transform-origin:50% 100%}
 .is-on .hr-vis .mini-dash i{animation:hr-grow .8s var(--ease-out) both;animation-delay:calc(var(--b) * 50ms + 400ms)}
 @keyframes hr-grow{from{transform:scaleY(0)}}
@@ -76,7 +76,7 @@
 /* coming soon + module picks */
 .hr-soon{min-height:220px;background:linear-gradient(var(--paper),var(--blue-wash))}
 .hr-pick{min-height:220px;transition:border-color var(--t-mid) var(--ease),transform var(--t-mid) var(--ease),box-shadow var(--t-mid) var(--ease)}
-.hr-pick:hover{border-color:color-mix(in oklab,var(--blue) 45%,#fff);transform:translateY(-6px);box-shadow:0 40px 60px -40px rgba(20,40,110,.35)}
+.hr-pick:hover{border-color:color-mix(in oklab,var(--blue) 45%,var(--paper));transform:translateY(-6px);box-shadow:0 40px 60px -40px rgba(0,0,0,.35)}
 .hr-pick:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 .hr-pick .link{margin-top:auto}
 .hr-pick-n{font-family:var(--f-display);font-size:64px;font-weight:680;letter-spacing:-.05em;line-height:.9;color:var(--blue-tint);transition:color var(--t-mid) var(--ease)}
@@ -92,7 +92,7 @@
 .hr-field{display:flex;flex-direction:column;gap:8px;min-width:0;margin:0;padding:0;border:0}
 .hr-field > span,.hr-field legend span{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2)}
 .hr-field legend{padding:0;margin-bottom:8px}
-.hr-field input{height:52px;padding:0 16px;border-radius:12px;border:1px solid var(--line2);background:#fff;font:inherit;font-size:16px;color:var(--ink);min-width:0;transition:border-color var(--t-fast) var(--ease),box-shadow var(--t-fast) var(--ease)}
+.hr-field input{height:52px;padding:0 16px;border-radius:12px;border:1px solid var(--line2);background:var(--paper);font:inherit;font-size:16px;color:var(--ink);min-width:0;transition:border-color var(--t-fast) var(--ease),box-shadow var(--t-fast) var(--ease)}
 .hr-field input::placeholder{color:var(--ink3)}
 .hr-field input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 4px color-mix(in oklab,var(--blue) 14%,transparent)}
 .hr-field .seg{align-self:flex-start}
@@ -100,7 +100,7 @@
 .hr-collapse.is-open{grid-template-rows:1fr;opacity:1}
 .hr-collapse > *{overflow:hidden;min-height:0}
 .hr-checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
-.hr-check{display:flex;align-items:center;gap:10px;padding:12px 14px;border:1px solid var(--line2);border-radius:12px;background:#fff;cursor:pointer;font-size:15px;font-weight:600;line-height:1.3;transition:border-color var(--t-fast) var(--ease),background var(--t-fast) var(--ease),color var(--t-fast) var(--ease)}
+.hr-check{display:flex;align-items:center;gap:10px;padding:12px 14px;border:1px solid var(--line2);border-radius:12px;background:var(--paper);cursor:pointer;font-size:15px;font-weight:600;line-height:1.3;transition:border-color var(--t-fast) var(--ease),background var(--t-fast) var(--ease),color var(--t-fast) var(--ease)}
 .hr-check:hover{border-color:var(--blue)}
 .hr-check:has(input:checked){border-color:var(--blue);background:var(--blue-wash);color:var(--blue-deep)}
 .hr-check input{accent-color:var(--blue);width:18px;height:18px;margin:0;flex:none}
@@ -108,7 +108,7 @@
 .hr-submit{align-self:flex-start}
 .hr-submit:disabled{opacity:.6;cursor:progress}
 .hr-done{align-items:flex-start;animation:pop .6s var(--ease-out) both}
-.hr-done-ico{width:56px;height:56px;border-radius:99px;background:var(--blue);color:#fff;display:grid;place-items:center;animation:pop .6s var(--ease-out) .15s both}
+.hr-done-ico{width:56px;height:56px;border-radius:99px;background:var(--blue);color:var(--ground);display:grid;place-items:center;animation:pop .6s var(--ease-out) .15s both}
 .hr-done-ico svg{width:26px;height:26px}
 
 /* responsive: drop the sticky stage, show each screen under its text */

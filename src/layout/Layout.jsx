@@ -35,7 +35,7 @@ export default function Layout({ children }) {
   }, [reduce, children]);
 
   return (
-    <div className={'sk' + (ready ? ' rv-ready' : '')} ref={root} style={{ '--blue': '#1B4DFF' }}>
+    <div className={'sk' + (ready ? ' rv-ready' : '')} ref={root} style={{ '--blue': '#C8FF00' }}>
       <Nav navRef={nav} barRef={bar} />
       {children}
       <Footer />

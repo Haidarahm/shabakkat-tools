@@ -29,6 +29,6 @@ export const TOOL_ICONS = { reach: ReachIco, sign: SignIco, pulse: PulseIco };
 export const LogoMark = ({ className = 'logo-mark' }) => (
   <svg className={className} viewBox="0 0 30 30" aria-hidden="true">
     <rect width="30" height="30" rx="9" style={{ fill: 'var(--blue)' }} />
-    <path d={NET} stroke="#fff" strokeWidth="1.6" strokeLinecap="round" fill="none" />
+    <path d={NET} stroke="#0A0B0D" strokeWidth="1.6" strokeLinecap="round" fill="none" />
   </svg>
 );

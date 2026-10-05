@@ -70,7 +70,7 @@ export default function Pulse() {
   };
 
   return (
-    <div className="u-app" style={{ width: 1440, height: 900, fontFamily: "Cairo, 'Segoe UI', system-ui, sans-serif", color: '#0A1024', '--blue': '#1B4DFF' }}>
+    <div className="u-app" style={{ width: 1440, height: 900, fontFamily: "Cairo, 'Segoe UI', system-ui, sans-serif", color: '#EEF2E6', '--blue': '#C8FF00' }}>
       <Rail on="pulse" extra={
         <button className="u-rb" type="button" aria-label="Reports"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"><rect x="4" y="4" width="16" height="16" rx="3" /><path d="M8 16v-4M12 16V8M16 16v-6" /></svg></button>
       } />

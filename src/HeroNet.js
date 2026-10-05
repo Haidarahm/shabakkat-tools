@@ -24,7 +24,7 @@ const LINE_FS = 'uniform vec3 uColor; uniform vec3 uBase; varying float vGlow; v
 const PT_FS = 'uniform vec3 uColor; uniform vec3 uBase; varying float vGlow; varying float vFade; void main(){ vec2 c = gl_PointCoord - 0.5; float d = length(c); if (d > 0.5) discard; float a = smoothstep(0.5, 0.35, d); gl_FragColor = vec4(mix(uBase, uColor, vGlow), a * (0.25 + vGlow*0.75) * vFade); }';
 
 // Returns null when WebGL is unavailable (caller shows the SVG fallback).
-export function createNet(canvas, heroEl, { accent = '#1B4DFF', reduce = false } = {}) {
+export function createNet(canvas, heroEl, { accent = '#C8FF00', reduce = false } = {}) {
   let renderer;
   try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'low-power' }); }
   catch { return null; }
@@ -60,7 +60,7 @@ export function createNet(canvas, heroEl, { accent = '#1B4DFF', reduce = false }
   const u = {
     uTime: { value: 0 }, uMouse: { value: new THREE.Vector2(99, 99) }, uStrength: { value: 0 },
     uRipple: { value: new THREE.Vector3(0, 0, -100) },
-    uColor: { value: new THREE.Color(accent) }, uBase: { value: new THREE.Color('#A9B3C8') },
+    uColor: { value: new THREE.Color(accent) }, uBase: { value: new THREE.Color('#4A5058') },
     uPx: { value: renderer.getPixelRatio() }
   };
   const lm = new THREE.ShaderMaterial({ uniforms: u, vertexShader: VS, fragmentShader: LINE_FS, transparent: true, depthWrite: false });

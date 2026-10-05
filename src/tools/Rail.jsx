@@ -12,7 +12,7 @@ export default function Rail({ on, extra }) {
   return (
     <nav className="u-rail" aria-label="Shabakkat">
       <a href="/" aria-label="Shabakkat home">
-        <svg className="mk" viewBox="0 0 30 30"><rect width="30" height="30" rx="9" style={{ fill: 'var(--blue)' }} /><path d={NET} stroke="#fff" strokeWidth="1.6" strokeLinecap="round" fill="none" /></svg>
+        <svg className="mk" viewBox="0 0 30 30"><rect width="30" height="30" rx="9" style={{ fill: 'var(--blue)' }} /><path d={NET} stroke="#0A0B0D" strokeWidth="1.6" strokeLinecap="round" fill="none" /></svg>
       </a>
       <span className="u-rlabel">Tools</span>
       {item('reach', 'Reach', ReachIco)}

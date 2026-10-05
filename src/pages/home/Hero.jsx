@@ -13,7 +13,7 @@ export default function Hero({ heroRef, canvasRef, reduce }) {
   const pos = (i) => 'pos-' + (((i - active) % 3) + 3) % 3;
 
   useEffect(() => {
-    const n = createNet(canvasRef.current, heroRef.current, { accent: '#1B4DFF', reduce });
+    const n = createNet(canvasRef.current, heroRef.current, { accent: '#C8FF00', reduce });
     if (!n) { setNoGl(true); return; }
     net.current = n;
     return () => { n.destroy(); net.current = null; };
@@ -71,7 +71,7 @@ export default function Hero({ heroRef, canvasRef, reduce }) {
               <div className="hc-top"><span className="glyph"><SignIco /></span><div><b>Sign</b><small>Contracts &amp; e-signature</small></div><span className="tag">02</span></div>
               <div className="hc-vis">
                 <div className="paper">
-                  <div className="ln" style={{ width: '46%', height: 10, background: '#0A1024' }} />
+                  <div className="ln" style={{ width: '46%', height: 10, background: 'var(--ink)' }} />
                   <div className="ln" style={{ width: '92%' }} /><div className="ln hl" style={{ width: '80%' }} /><div className="ln" style={{ width: '88%' }} /><div className="ln" style={{ width: '64%' }} />
                   <div className="sig-box"><small>Signature · Client</small>
                     <svg viewBox="0 0 300 64" preserveAspectRatio="none" aria-hidden="true"><path className="sig-path" d={SIG_A + ' 30 0 50-2'} /></svg>
