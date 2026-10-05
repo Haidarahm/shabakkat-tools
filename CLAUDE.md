@@ -15,7 +15,7 @@ There is no test runner or linter configured.
 The site is a Vite + React 19 port of the HTML mockups in `Homepage-html/` (`Main`, `Reach`, `Sign`, `Pulse` `.dc.html`) and `Design system-html/System.dc.html`. Check any design change against those files first; they win over other specs.
 
 - `src/styles.css` and `src/tools/tools.css` are the mockup CSS copied verbatim. Local additions are marked in the files (`.orbit > svg` fix, phone breakpoint, `.tool-page`). Keep new CSS in the same style rather than introducing a CSS-in-JS or utility layer.
-- Dark theme with a fluorescent lime accent `#C8FF00` (still named `--blue`, set on the `.sk` root in `Layout` and on each tool's `.u-app`). Neutrals are dark tokens in `styles.css` / `tools.css`; text on accent fills is `var(--ground)`. Single accent only; the one exception is the orange warning state in the tools.
+- Dark theme with a fluorescent lime accent `#C8FF00` (still named `--blue`, set on the `.sk` root via `Layout`'s `accent` prop and on each tool's `.u-app`). The `/hr` page uses fluorescent cyan `#00E5FF` instead (passed from `App.jsx`). Neutrals are dark tokens in `styles.css` / `tools.css`; text on accent fills is `var(--ground)`. Single accent only; the one exception is the orange warning state in the tools.
 - English only. The EN/ع switch is visual only.
 - Don't add GSAP, Framer, Locomotive or Swiper. Motion is plain CSS, IntersectionObserver and sticky-scroll logic ported from the mockups. The hero WebGL "woven net" is `src/HeroNet.js` (three).
 

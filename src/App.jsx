@@ -31,7 +31,7 @@ export default function App() {
   const Tool = TOOLS[path];
 
   return (
-    <Layout>
+    <Layout accent={path === '/hr' ? '#00E5FF' : undefined}>
       {Tool ? <ToolPage Tool={Tool} /> : path === '/hr' ? <Hr /> : <Home />}
     </Layout>
   );

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import Nav from './Nav.jsx';
 import Footer from './Footer.jsx';
 
-export default function Layout({ children }) {
+export default function Layout({ children, accent = '#C8FF00' }) {
   const [ready, setReady] = useState(false);
   const root = useRef(), nav = useRef(), bar = useRef();
   const reduce = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -35,7 +35,7 @@ export default function Layout({ children }) {
   }, [reduce, children]);
 
   return (
-    <div className={'sk' + (ready ? ' rv-ready' : '')} ref={root} style={{ '--blue': '#C8FF00' }}>
+    <div className={'sk' + (ready ? ' rv-ready' : '')} ref={root} style={{ '--blue': accent }}>
       <Nav navRef={nav} barRef={bar} />
       {children}
       <Footer />
