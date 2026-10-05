@@ -16,7 +16,7 @@ The site is a Vite + React 19 port of the HTML mockups in `Homepage-html/` (`Mai
 
 - `src/styles.css` and `src/tools/tools.css` are the mockup CSS copied verbatim. Local additions are marked in the files (`.orbit > svg` fix, phone breakpoint, `.tool-page`). Keep new CSS in the same style rather than introducing a CSS-in-JS or utility layer.
 - Dark theme with a fluorescent lime accent `#C8FF00` (still named `--blue`, set on the `.sk` root via `Layout`'s `accent` prop and on each tool's `.u-app`). The `/hr` page uses fluorescent cyan `#00E5FF` instead (passed from `App.jsx`). Neutrals are dark tokens in `styles.css` / `tools.css`; text on accent fills is `var(--ground)`. Single accent only; the one exception is the orange warning state in the tools.
-- Light theme: `html[data-theme="light"]` (set by the nav toggle, persisted in `localStorage.theme`, applied pre-render by the inline script in `index.html`). Its token overrides live at the end of `styles.css`; accent becomes electric blue `#2453FF` everywhere (overrides the inline `--blue`). The switch uses a View Transitions circular reveal from the toggle.
+- Light theme: `html[data-theme="light"]` (set by the nav toggle, persisted in `localStorage.theme`, applied pre-render by the inline script in `index.html`; light is the default). Its token overrides live at the end of `styles.css`; accent becomes electric blue `#2453FF` everywhere (overrides the inline `--blue`). The switch uses a View Transitions circular reveal from the toggle.
 - English only. The EN/ع switch is visual only.
 - Don't add GSAP, Framer, Locomotive or Swiper. Motion is plain CSS, IntersectionObserver and sticky-scroll logic ported from the mockups. The hero WebGL "woven net" is `src/HeroNet.js` (three).
 

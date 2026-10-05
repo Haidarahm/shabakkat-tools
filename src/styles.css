@@ -422,23 +422,16 @@ section[id]{scroll-margin-top:76px}
 [data-theme="light"] .cta .btn-ghost{color:#fff;border-color:rgba(255,255,255,.45)}
 [data-theme="light"] .cta .btn-white{color:var(--blue)}
 
-/* theme toggle: sun ↔ moon knob in a sky track */
-.theme-tg{position:relative;width:64px;height:34px;flex:none;border-radius:999px;border:1px solid var(--line2);padding:0;cursor:pointer;overflow:hidden;
-  background:linear-gradient(180deg,#0B1020,#1B2240);transition:background var(--t-mid) var(--ease),border-color var(--t-fast)}
-.theme-tg:hover{border-color:var(--blue)}
-.theme-tg:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
-.theme-tg .st{position:absolute;width:2px;height:2px;border-radius:9px;background:#fff;transition:transform var(--t-mid) var(--ease),opacity var(--t-mid)}
-.theme-tg .st:nth-child(1){left:12px;top:9px}.theme-tg .st:nth-child(2){left:20px;top:20px;width:3px;height:3px}.theme-tg .st:nth-child(3){left:9px;top:23px}
-.theme-tg .knob{position:absolute;top:3px;left:33px;width:26px;height:26px;border-radius:999px;background:#E9EEF8;box-shadow:inset -4px -3px 0 #C3CBDB;
-  transition:left var(--t-slow) cubic-bezier(.5,1.6,.4,1),background var(--t-mid),box-shadow var(--t-mid),transform var(--t-slow) var(--ease)}
-.theme-tg .knob::before{content:"";position:absolute;width:6px;height:6px;border-radius:9px;left:6px;top:6px;background:#C3CBDB;box-shadow:8px 7px 0 -1px #C3CBDB;transition:opacity var(--t-fast)}
-.theme-tg .knob::after{content:"";position:absolute;inset:-6px;border-radius:999px;background:repeating-conic-gradient(#FFC93C 0 8deg,transparent 8deg 30deg);
-  -webkit-mask:radial-gradient(circle,transparent 14.5px,#000 15px 17.5px,transparent 18px);mask:radial-gradient(circle,transparent 14.5px,#000 15px 17.5px,transparent 18px);opacity:0;transform:scale(.4) rotate(-90deg);transition:all var(--t-slow) var(--ease)}
-[data-theme="light"] .theme-tg{background:linear-gradient(180deg,#7FB2FF,#CFE3FF)}
-[data-theme="light"] .theme-tg .st{opacity:0;transform:translateY(12px)}
-[data-theme="light"] .theme-tg .knob{left:5px;background:#FFC93C;box-shadow:0 0 14px #FFD76A;transform:rotate(180deg)}
-[data-theme="light"] .theme-tg .knob::before{opacity:0}
-[data-theme="light"] .theme-tg .knob::after{opacity:1;transform:none}
+/* theme toggle: one icon that morphs sun (light) ↔ moon (dark) */
+.theme-tg{width:40px;height:40px;color:var(--ink)}
+.theme-tg svg{width:20px;height:20px;overflow:visible}
+.theme-tg .tg-core,.theme-tg .tg-rays,.theme-tg .tg-cut{transform-box:fill-box;transform-origin:center;transition:transform var(--t-slow) var(--ease-out),opacity var(--t-mid) var(--ease)}
+.theme-tg .tg-core{transform:scale(1.75)}
+.theme-tg .tg-cut{transform:translate(-7px,7px)}
+.theme-tg .tg-rays{opacity:0;transform:rotate(-90deg) scale(.5)}
+[data-theme="light"] .theme-tg .tg-core{transform:none}
+[data-theme="light"] .theme-tg .tg-cut{transform:none}
+[data-theme="light"] .theme-tg .tg-rays{opacity:1;transform:none}
 
 /* circular reveal between themes (View Transitions; JS animates the clip-path) */
 ::view-transition-old(root),::view-transition-new(root){animation:none;mix-blend-mode:normal}

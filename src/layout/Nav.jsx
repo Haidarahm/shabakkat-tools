@@ -6,7 +6,7 @@ import { ACCENTS } from './Layout.jsx';
 
 export default function Nav({ navRef, barRef }) {
   const [lang, setLang] = useState('en');
-  const [theme, setTheme] = useState(() => document.documentElement.dataset.theme || 'dark');
+  const [theme, setTheme] = useState(() => document.documentElement.dataset.theme || 'light');
 
   // Swap theme, then grow the new one out of the toggle as a circle (View Transitions; instant swap where unsupported).
   const toggleTheme = (e) => {
@@ -63,9 +63,13 @@ export default function Nav({ navRef, barRef }) {
             <button type="button" aria-pressed={lang === 'en'} onClick={() => setLang('en')}>EN</button>
             <button type="button" aria-pressed={lang === 'ar'} onClick={() => setLang('ar')} lang="ar">ع</button>
           </div>
-          <button className="theme-tg" type="button" onClick={toggleTheme} aria-pressed={theme === 'light'}
+          <button className="icon-btn theme-tg" type="button" onClick={toggleTheme} aria-pressed={theme === 'light'}
             aria-label={theme === 'light' ? 'Switch to dark theme' : 'Switch to light theme'}>
-            <i className="st" /><i className="st" /><i className="st" /><span className="knob" />
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <mask id="tg-moon"><rect x="-4" y="-4" width="32" height="32" fill="#fff" /><circle className="tg-cut" cx="22" cy="2" r="4" fill="#000" /></mask>
+              <circle className="tg-core" cx="12" cy="12" r="5" fill="currentColor" mask="url(#tg-moon)" />
+              <path className="tg-rays" d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+            </svg>
           </button>
           <a className="btn btn-primary btn-sm" href="/#cta">Book demo</a>
         </div>
