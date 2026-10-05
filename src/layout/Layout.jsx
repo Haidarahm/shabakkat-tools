@@ -2,7 +2,10 @@ import { useEffect, useRef, useState } from 'react';
 import Nav from './Nav.jsx';
 import Footer from './Footer.jsx';
 
-export default function Layout({ children, accent = '#C8FF00' }) {
+// Each product's fluorescent accent; the nav menu reuses these per item.
+export const ACCENTS = { tools: '#C8FF00', hr: '#00E5FF' };
+
+export default function Layout({ children, accent = ACCENTS.tools }) {
   const [ready, setReady] = useState(false);
   const root = useRef(), nav = useRef(), bar = useRef();
   const reduce = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;

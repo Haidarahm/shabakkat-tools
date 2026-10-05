@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Layout from './layout/Layout.jsx';
+import Layout, { ACCENTS } from './layout/Layout.jsx';
 import Home from './pages/home/Home.jsx';
 import Hr from './pages/hr/Hr.jsx';
 import Reach from './tools/Reach.jsx';
@@ -31,7 +31,7 @@ export default function App() {
   const Tool = TOOLS[path];
 
   return (
-    <Layout accent={path === '/hr' ? '#00E5FF' : undefined}>
+    <Layout accent={path === '/hr' ? ACCENTS.hr : undefined}>
       {Tool ? <ToolPage Tool={Tool} /> : path === '/hr' ? <Hr /> : <Home />}
     </Layout>
   );

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Arrow, Chevron, HrIco, LogoMark, TOOL_ICONS } from '../icons.jsx';
 import { TOOLS } from '../pages/home/data.js';
+import { ACCENTS } from './Layout.jsx';
 
 export default function Nav({ navRef, barRef }) {
   const [lang, setLang] = useState('en');
@@ -14,17 +15,17 @@ export default function Nav({ navRef, barRef }) {
             <li className="has-menu">
               <button className="nav-a" type="button" aria-haspopup="true">Products <Chevron /></button>
               <div className="menu">
-                {TOOLS.map((t) => {
+                {TOOLS.filter((t) => t.id !== 'pulse').map((t) => {
                   const Ico = TOOL_ICONS[t.id];
                   return (
-                    <a className="menu-item" href={'/' + t.id} key={t.id}>
+                    <a className="menu-item" href={'/' + t.id} key={t.id} style={{ '--blue': ACCENTS.tools }}>
                       <span className="glyph"><Ico /></span>
                       <span><b>{t.name}</b><small>{t.menu}</small></span>
                       <Arrow className="arr" width="18" height="18" />
                     </a>
                   );
                 })}
-                <a className="menu-item" href="/hr">
+                <a className="menu-item" href="/hr" style={{ '--blue': ACCENTS.hr }}>
                   <span className="glyph"><HrIco /></span>
                   <span><b>HR System</b><small>People, payroll and processes</small></span>
                   <Arrow className="arr" width="18" height="18" />

@@ -63,7 +63,7 @@ section[id]{scroll-margin-top:76px}
 .menu{position:absolute;top:calc(100% + 10px);left:50%;width:520px;padding:10px;border-radius:var(--r-l);background:var(--paper);border:1px solid var(--line);box-shadow:0 30px 60px -20px rgba(0,0,0,.25);opacity:0;visibility:hidden;transform:translate(-50%,8px);transition:opacity var(--t-mid) var(--ease),transform var(--t-mid) var(--ease),visibility 0s linear var(--t-mid);display:grid;gap:4px}
 .menu::before{content:"";position:absolute;left:0;right:0;top:-12px;height:12px}
 .has-menu:hover .menu,.has-menu:focus-within .menu{opacity:1;visibility:visible;transform:translate(-50%,0);transition-delay:0s}
-.menu-item{display:flex;align-items:center;gap:14px;padding:12px;border-radius:14px;transition:background var(--t-fast)}
+.menu-item{--blue-tint:color-mix(in oklab,var(--blue) 14%,var(--paper));--blue-wash:color-mix(in oklab,var(--blue) 6%,var(--paper));display:flex;align-items:center;gap:14px;padding:12px;border-radius:14px;transition:background var(--t-fast)}
 .menu-item:hover,.menu-item:focus-visible{background:var(--blue-wash);outline:none}
 .menu-item b{display:block;font-size:16px;font-weight:700;color:var(--ink)}
 .menu-item small{display:block;font-size:14px;color:var(--ink3);line-height:1.4}
