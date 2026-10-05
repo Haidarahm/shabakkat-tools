@@ -36,7 +36,7 @@ export default function Platform() {
             <span className="flow-l" style={{ left: 250, top: 504 }}>contract → insight</span>
             <span className="flow-l" style={{ left: 40, top: 170 }}>insight → reply</span>
             <div className="core">
-              <svg viewBox="0 0 30 30" aria-hidden="true"><path d={NET} stroke="#0A0B0D" strokeWidth="1.6" strokeLinecap="round" fill="none" /></svg>
+              <svg viewBox="0 0 30 30" aria-hidden="true"><path d={NET} style={{ stroke: 'var(--ground)' }} strokeWidth="1.6" strokeLinecap="round" fill="none" /></svg>
               <b>Shabakkat</b><small>Identity · Data · AI</small>
             </div>
             {[[300, 60], [109, 390], [491, 390]].map(([left, top], i) => {

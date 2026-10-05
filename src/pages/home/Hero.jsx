@@ -3,6 +3,9 @@ import { createNet } from '../../HeroNet.js';
 import { Arrow, ArrowL, Spark, ReachIco, SignIco, PulseIco } from '../../icons.jsx';
 import { TOOLS, SIG_A } from './data.js';
 
+// Net [accent, base] per theme.
+const NET_COLORS = { dark: ['#C8FF00', '#4A5058'], light: ['#2453FF', '#A3ADC2'] };
+
 export default function Hero({ heroRef, canvasRef, reduce }) {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -16,7 +19,11 @@ export default function Hero({ heroRef, canvasRef, reduce }) {
     const n = createNet(canvasRef.current, heroRef.current, { accent: '#C8FF00', reduce });
     if (!n) { setNoGl(true); return; }
     net.current = n;
-    return () => { n.destroy(); net.current = null; };
+    const paint = () => n.colors(...NET_COLORS[document.documentElement.dataset.theme === 'light' ? 'light' : 'dark']);
+    paint();
+    const mo = new MutationObserver(paint);
+    mo.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    return () => { mo.disconnect(); n.destroy(); net.current = null; };
   }, [reduce, canvasRef, heroRef]);
 
   return (

@@ -114,6 +114,7 @@ export function createNet(canvas, heroEl, { accent = '#C8FF00', reduce = false }
   return {
     move(e) { const p = toPlane(e); if (p) { mouse.tx = p.x; mouse.ty = p.y; mouse.ts = 1; } },
     leave() { mouse.ts = 0; },
+    colors(accent, base) { u.uColor.value.set(accent); u.uBase.value.set(base); render(); },
     down(e) {
       if (e.target.closest && e.target.closest('a,button')) return;
       const p = toPlane(e); if (p) u.uRipple.value.set(p.x, p.y, u.uTime.value);

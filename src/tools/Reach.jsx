@@ -59,7 +59,7 @@ export default function Reach() {
   };
 
   return (
-    <div className="u-app" style={{ width: 1440, height: 900, fontFamily: "Cairo, 'Segoe UI', system-ui, sans-serif", color: '#EEF2E6', '--blue': '#C8FF00' }}>
+    <div className="u-app" style={{ width: 1440, height: 900, fontFamily: "Cairo, 'Segoe UI', system-ui, sans-serif", color: 'var(--ink)', '--blue': '#C8FF00' }}>
       <Rail on="reach" extra={
         <button className="u-rb" type="button" aria-label="Contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"><circle cx="12" cy="8" r="3.5" /><path d="M5 20c.8-3.5 3.6-5.5 7-5.5s6.2 2 7 5.5" /></svg></button>
       } />
