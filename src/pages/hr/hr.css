@@ -12,7 +12,7 @@
 .hr-hero .lead{max-width:62ch}
 .hr-fade{animation:pop .8s var(--ease-out) both;animation-delay:calc(var(--i) * 110ms + 650ms)}
 .hr-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
-.hr-chips a{height:36px;padding:0 14px;border-radius:999px;border:1px solid var(--line2);background:rgba(19,21,24,.7);display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--ink2);transition:border-color var(--t-fast) var(--ease),color var(--t-fast) var(--ease),transform var(--t-fast) var(--ease)}
+.hr-chips a{height:36px;padding:0 14px;border-radius:999px;border:1px solid var(--line2);background:var(--paper);display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--ink);transition:border-color var(--t-fast) var(--ease),color var(--t-fast) var(--ease),transform var(--t-fast) var(--ease)}
 .hr-chips a:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-2px)}
 .hr-chips a span{font-family:var(--f-mono);font-size:11px;color:var(--blue)}
 
