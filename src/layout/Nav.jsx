@@ -45,7 +45,7 @@ export default function Nav({ navRef, barRef }) {
                     </a>
                   );
                 })}
-                <a className="menu-item" href="/hr" style={{ '--blue': ACCENTS.hr }}>
+                <a className="menu-item menu-hr" href="/hr" style={{ '--blue': ACCENTS.hr }}>
                   <span className="glyph"><HrIco /></span>
                   <span><b>HR System</b><small>People, payroll and processes</small></span>
                   <Arrow className="arr" width="18" height="18" />

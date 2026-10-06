@@ -418,6 +418,9 @@ section[id]{scroll-margin-top:76px}
 [data-theme="light"] .pr.feat p,[data-theme="light"] .pr.feat .per{color:rgba(255,255,255,.8)}
 [data-theme="light"] .pr.feat .glyph,[data-theme="light"] .pr.feat .tag{background:rgba(255,255,255,.16);color:#fff}
 [data-theme="light"] .cta{background:linear-gradient(135deg,#2453FF,#1A2FB8)}
+/* HR keeps its own hue in light: emerald, clearly apart from the site blue. */
+[data-theme="light"] .sk:has(.hr-hero),[data-theme="light"] .menu-hr{--blue:#059669!important}
+[data-theme="light"] .sk:has(.hr-hero) .cta{background:linear-gradient(135deg,#059669,#065F46)}
 [data-theme="light"] .cta .net{color:rgba(255,255,255,.16)}
 [data-theme="light"] .cta .btn-ghost{color:#fff;border-color:rgba(255,255,255,.45)}
 [data-theme="light"] .cta .btn-white{color:var(--blue)}
